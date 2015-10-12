@@ -1,23 +1,10 @@
 import React from 'react'
-import { Router, Route, Link } from 'react-router'
+import { Link } from 'react-router'
 
-const Landing = React.createClass({
-  render() {
-    return (
-      <h2>Landing</h2>
-    )
-  }
-})
+import Landing from './../page/Landing.js'
+import Tableview from './../page/Tableview.js'
 
-const Tableview = React.createClass({
-  render() {
-    return (
-      <h2>Tableview</h2>
-    )
-  }
-})
-
-const App = React.createClass({
+module.exports = React.createClass({
   render() {
     return (
       <div className="container">
@@ -46,14 +33,3 @@ const App = React.createClass({
     )
   }
 })
-
-const routes = {
-  path: '/',
-  component: App,
-  childRoutes: [
-    { path: 'landing', component: Landing },
-    { path: 'tableview', component: Tableview }
-  ]
-}
-
-React.render(<Router routes={routes} />, document.body)

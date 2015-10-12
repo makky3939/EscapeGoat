@@ -3,9 +3,10 @@ gulpReact      = require 'gulp-react'
 babelify       = require 'babelify'
 gulpBrowserify = require 'gulp-browserify'
 gulpPlumber    = require 'gulp-plumber'
+gulpConnect    = require 'gulp-connect'
 
-gulp.task 'jsx', ->
-  gulp.src '../src/index.jsx'
+gulp.task 'js', ->
+  gulp.src '../src/index.js'
     .pipe gulpPlumber
       errorHandler: (err) ->
         console.log err
@@ -16,3 +17,4 @@ gulp.task 'jsx', ->
     .pipe gulpReact()
     .pipe gulpPlumber.stop()
     .pipe gulp.dest '../dst/assets'
+    .pipe gulpConnect.reload()
