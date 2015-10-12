@@ -1,10 +1,11 @@
 {
   "name": "escapegoat",
   "version": "0.0.0",
-  "description": "",
+  "description": "escapegoat",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp --gulpfile gulpfile/index.coffee build",
+    "server": "gulp --gulpfile gulpfile/index.coffee server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,19 @@
   },
   "homepage": "https://github.com/makky3939/EscapeGoat#readme",
   "dependencies": {
+    "react": "^0.13.3",
+    "react-router": "^0.13.4"
+  },
+  "devDependencies": {
     "coffee-script": "^1.10.0",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-connect": "^2.2.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-react": "^3.0.1",
+    "require-dir": "^0.3.0",
+    "rimraf": "^2.4.3",
+    "run-sequence": "^1.1.4"
   }
 }
