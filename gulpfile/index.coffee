@@ -5,8 +5,13 @@ requireDir  = require 'require-dir'
 requireDir './tasks'
 
 gulp.task 'build', ->
-  defaultTasks = ['jade', 'jsx']
+  defaultTasks = ['copy', 'jade', 'jsx', 'sass']
   runSequence 'clean', defaultTasks
 
+gulp.task 'watch', ->
+  gulp.watch './../src/index.jade', ['jade']
+  gulp.watch './../src/index.jsx', ['jsx']
+  gulp.watch './../src/index.sass', ['sass']
+
 gulp.task 'server', ->
-  runSequence 'build', 'connect'
+  runSequence 'build', 'connect', 'watch'

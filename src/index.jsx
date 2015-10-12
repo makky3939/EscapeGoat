@@ -4,7 +4,7 @@ import { Router, Route, Link } from 'react-router'
 const Landing = React.createClass({
   render() {
     return (
-      <div>Landing</div>
+      <h2>Landing</h2>
     )
   }
 })
@@ -12,7 +12,7 @@ const Landing = React.createClass({
 const Tableview = React.createClass({
   render() {
     return (
-      <div>Tableview</div>
+      <h2>Tableview</h2>
     )
   }
 })
@@ -20,15 +20,28 @@ const Tableview = React.createClass({
 const App = React.createClass({
   render() {
     return (
-      <div>
-        <h1>EscapeGoat</h1>
-        <ul>
-          <li><Link to="/landing">Landing</Link></li>
-          <li><Link to="/tableview">TableView</Link></li>
-        </ul>
-        <div className="detail">
-          {this.props.children}
+      <div className="container">
+        <div className="col-sm-3">
+          <div className="list-group">
+            <Link className="list-group-item" to="/landing">Landing</Link>
+            <Link className="list-group-item" to="/tableview">TableView</Link>
+          </div>
+          <hr />
         </div>
+
+        <div className="col-sm-9">
+          <div className="jumbotron">
+            <h1>EscapeGoat</h1>
+          </div>
+          <div>
+            {this.props.children}
+          </div>
+        </div>
+
+        <footer className="col-xs-12">
+          <hr />
+          <p>&copy; makky.io All Rights Reserved.</p>
+        </footer>
       </div>
     )
   }
