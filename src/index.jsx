@@ -1,26 +1,18 @@
 import React from 'react'
 import { Router, Route, Link } from 'react-router'
 
-const Dashboard = React.createClass({
+const Landing = React.createClass({
   render() {
     return (
-      <div>Dashboard</div>
+      <div>Landing</div>
     )
   }
 })
 
-const About = React.createClass({
+const Tableview = React.createClass({
   render() {
     return (
-      <div>About</div>
-    )
-  }
-})
-
-const Inbox = React.createClass({
-  render() {
-    return (
-      <div>Inbox</div>
+      <div>Tableview</div>
     )
   }
 })
@@ -29,23 +21,25 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>App</h1>
+        <h1>EscapeGoat</h1>
         <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/inbox">Inbox</Link></li>
+          <li><Link to="/landing">Landing</Link></li>
+          <li><Link to="/tableview">TableView</Link></li>
         </ul>
+        <div className="detail">
+          {this.props.children}
+        </div>
       </div>
     )
   }
 })
 
-
 const routes = {
   path: '/',
   component: App,
   childRoutes: [
-    { path: 'about', component: About },
-    { path: 'inbox', component: Inbox },
+    { path: 'landing', component: Landing },
+    { path: 'tableview', component: Tableview }
   ]
 }
 
