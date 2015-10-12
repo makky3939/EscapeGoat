@@ -20,9 +20,10 @@
   "homepage": "https://github.com/makky3939/EscapeGoat#readme",
   "dependencies": {
     "react": "^0.13.3",
-    "react-router": "^0.13.4"
+    "react-router": "^1.0.0-rc3"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
     "coffee-script": "^1.10.0",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
