@@ -5,7 +5,12 @@ module.exports = React.createClass({
   render() {
     return (
       <div>
-        <h2>Landing</h2>
+        <div className="jumbotron">
+          <h1>EscapeGoat</h1>
+          <p>卒業判定ツール for klis</p>
+        </div>
+
+        <h2>Usage</h2>
         <ImputFile></ImputFile>
       </div>
     )

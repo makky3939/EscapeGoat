@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import Landing from './../page/Landing.js'
+import Usage from './../page/Usage.js'
 import Tableview from './../page/Tableview.js'
+
+import RecordStore from '../../stores/RecordStore.js'
 
 module.exports = React.createClass({
   render() {
@@ -10,19 +12,14 @@ module.exports = React.createClass({
       <div className="container">
         <div className="col-sm-3">
           <div className="list-group">
-            <Link className="list-group-item" to="/landing">Landing</Link>
-            <Link className="list-group-item" to="/tableview">TableView</Link>
+            <Link className="list-group-item" to="/usage" activeClassName="active">Usage</Link>
+            <Link className="list-group-item" to="/tableview" activeClassName="active">TableView</Link>
           </div>
           <hr />
         </div>
 
         <div className="col-sm-9">
-          <div className="jumbotron">
-            <h1>EscapeGoat</h1>
-          </div>
-          <div>
-            {this.props.children}
-          </div>
+          {this.props.children}
         </div>
 
         <footer className="col-xs-12">

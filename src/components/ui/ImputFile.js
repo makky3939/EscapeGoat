@@ -28,7 +28,7 @@ module.exports = React.createClass({
   render() {
     return (
       <form onSubmit={this.handleSubmit} encType="multipart/form-data">
-        <input type="file" onChange={this.handleFile} />
+        <input type="file" className="form-control" onChange={this.handleFile} />
       </form>
     )
   }

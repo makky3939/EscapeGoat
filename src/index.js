@@ -1,15 +1,16 @@
 import React from 'react'
-import { Router } from 'react-router'
+import { Router, Redirect } from 'react-router'
 
 import App from './components/layout/App.js'
-import Landing from './components/page/Landing.js'
+import Usage from './components/page/Usage.js'
 import TableView from './components/page/TableView.js'
 
 const routes = {
   path: '/',
   component: App,
+  indexRoute: { path: "" },
   childRoutes: [
-    { path: 'landing', component: Landing },
+    { path: 'usage', component: Usage },
     { path: 'tableview', component: TableView }
   ]
 }
