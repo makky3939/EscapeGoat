@@ -1,6 +1,8 @@
 import React from 'react'
 import ImputFile from './../ui/ImputFile.js'
 
+import RecordStore from '../../stores/RecordStore.js'
+
 module.exports = React.createClass({
   render() {
     return (

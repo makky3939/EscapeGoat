@@ -4,8 +4,6 @@ import { Link } from 'react-router'
 import Usage from './../page/Usage.js'
 import Tableview from './../page/Tableview.js'
 
-import RecordStore from '../../stores/RecordStore.js'
-
 module.exports = React.createClass({
   render() {
     return (

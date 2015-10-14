@@ -1,6 +1,8 @@
 import TodoConstants from './../constants/RecordConstants.js'
 import AppDispatcher from './../dispatcher/AppDispatcher.js'
 
+import RecordConstants from './../constants/RecordConstants.js'
+
 import { EventEmitter} from 'events'
 import assign from 'object-assign'
 
@@ -12,22 +14,26 @@ let _records = {}
  * Create a Record item.
  * @param {string} text The content of the Record
  */
-function create(text) {
-  // Using the current timestamp in place of a real id.
-  var id = Date.now();
+function create(record) {
+  const id = Math.floor(Math.random()* 1000000)
   _records[id] = {
     id: id,
-    complete: false,
-    text: text
+    type: record.type,
+    year: record.year,
+    term: record.term,
+    subjectCode: record.subjectCode,
+    subjectName: record.subjectName,
+    teacher: record.teacher,
+    score: record.score,
+    unit: record.unit
   }
 }
 
 /**
- * Delete a Record item.
- * @param {string} id
+ * Delete Record items.
  */
-function destroy(id) {
-  delete _records[id]
+function destroyAll() {
+  _records = []
 }
 
 const RecordStore = assign({}, EventEmitter.prototype, {
@@ -59,20 +65,18 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   },
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
-    let action = payload.action
-    let text
+    let actionType = payload.actionType
+    let record = payload.text
 
-    switch(action.actionType) {
+    switch(actionType) {
       case RecordConstants.RECORD_CREATE:
-        text = action.text.trim()
-        if (text !== '') {
-          create(text)
-          RecordStore.emitChange()
-        }
+        // TODO::validation
+        create(record)
+        RecordStore.emitChange()
         break
 
-      case RecordConstants.RECORD_DESTROY:
-        destroy(action.id)
+      case RecordConstants.RECORD_DESTROY_ALL:
+        destroyAll()
         RecordStore.emitChange()
         break
     }
