@@ -1,6 +1,6 @@
 import React from 'react'
 
-import RecordAction from './../../actions/RecordAction.js'
+import RecordAction from './../../../actions/RecordAction.js'
 
 module.exports = React.createClass({
   getInitialState() {
@@ -46,7 +46,7 @@ module.exports = React.createClass({
   render() {
     return (
       <form onSubmit={this.handleSubmit} encType="multipart/form-data">
-        <input type="file" className="form-control" onChange={this.handleFile} />
+        <input type="file" className="form-control" onChange={ this.handleFile } />
       </form>
     )
   }

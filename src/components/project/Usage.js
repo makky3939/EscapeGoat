@@ -1,6 +1,9 @@
 import React from 'react'
-import ImputFile from './../ui/ImputFile.js'
 
+// UI
+import ImputFile from './../ui/Imput/File.js'
+
+// Store
 import RecordStore from '../../stores/RecordStore.js'
 
 module.exports = React.createClass({
@@ -13,6 +16,7 @@ module.exports = React.createClass({
         </div>
 
         <h2>Usage</h2>
+        <hr />
         <ImputFile></ImputFile>
       </div>
     )

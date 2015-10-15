@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import Usage from './../page/Usage.js'
-import Tableview from './../page/Tableview.js'
-
 module.exports = React.createClass({
   render() {
     return (
@@ -11,7 +8,7 @@ module.exports = React.createClass({
         <div className="col-sm-3">
           <div className="list-group">
             <Link className="list-group-item" to="/usage" activeClassName="active">Usage</Link>
-            <Link className="list-group-item" to="/tableview" activeClassName="active">TableView</Link>
+            <Link className="list-group-item" to="/records" activeClassName="active">Records</Link>
           </div>
           <hr />
         </div>
