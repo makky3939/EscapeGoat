@@ -12,6 +12,7 @@ gulp.task 'watch', ->
   gulp.watch './../src/index.jade', ['jade']
   gulp.watch ['./../src/index.js', './../src/**/*.js'], ['js']
   gulp.watch './../src/index.sass', ['sass']
+  gulp.watch './../src/images/*', ['copy']
 
 gulp.task 'server', ->
   runSequence 'build', 'connect', 'watch'
