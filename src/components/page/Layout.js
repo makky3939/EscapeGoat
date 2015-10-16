@@ -1,15 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router'
+
+// Component
+import Sidebar from '../project/Sidebar.js'
 
 module.exports = React.createClass({
   render() {
     return (
       <div className="container">
         <div className="col-sm-3">
-          <div className="list-group">
-            <Link className="list-group-item" to="/usage" activeClassName="active">Usage</Link>
-            <Link className="list-group-item" to="/records" activeClassName="active">Records</Link>
-          </div>
+          <Sidebar />
           <hr />
         </div>
 
