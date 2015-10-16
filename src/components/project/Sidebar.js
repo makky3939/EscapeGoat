@@ -5,8 +5,8 @@ module.exports = React.createClass({
   render() {
     return (
       <div className="list-group">
-        <Link className="list-group-item" to="/usage" activeClassName="active">Usage</Link>
-        <Link className="list-group-item" to="/records" activeClassName="active">Records</Link>
+        <Link className="list-group-item" to="/usage" activeClassName="active">Top</Link>
+        <Link className="list-group-item" to="/records" activeClassName="active">履修科目一覧</Link>
       </div>
     )
   }

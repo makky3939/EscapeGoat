@@ -47,7 +47,7 @@ let TableView = React.createClass({
 
     return (
       <div>
-        <h2>Records</h2>
+        <h2>履修科目一覧</h2>
         <hr />
         <Table header={tableHeader} body={records} />
       </div>

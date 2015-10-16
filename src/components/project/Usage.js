@@ -46,7 +46,7 @@ module.exports = React.createClass({
           <section className="usage__subSection">
             <h3>TwinsからCSVファイルのダウンロード</h3>
             <ol>
-              <li><a>Twins</a>にアクセスし、<code>履修 -> 科目区分参照・変更</code> を選択します。</li>
+              <li><a href="https://twins.tsukuba.ac.jp/campusweb/" target="_blank">Twins</a>にアクセスし、<code>履修 -> 科目区分参照・変更</code> を選択します。</li>
               <li>クリック後に表示されたページの下部にある<code>ダウンロードボタン</code>を選択肢し、ダウンロードしてください。</li>
             </ol>
             <div className="row">
