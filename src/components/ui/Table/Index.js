@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Component
 import TableRow from './Row.js'
 
 const Table = React.createClass({

@@ -1,10 +1,9 @@
-import TodoConstants from './../constants/RecordConstants.js'
-import AppDispatcher from './../dispatcher/AppDispatcher.js'
-
-import RecordConstants from './../constants/RecordConstants.js'
-
 import { EventEmitter} from 'events'
 import assign from 'object-assign'
+
+import TodoConstants from './../constants/RecordConstants.js'
+import AppDispatcher from './../dispatcher/AppDispatcher.js'
+import RecordConstants from './../constants/RecordConstants.js'
 
 const CHANGE_EVENT = 'change'
 
@@ -66,7 +65,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
     let actionType = payload.actionType
-    let record = payload.text
+    let record = payload.record
 
     switch(actionType) {
       case RecordConstants.RECORD_CREATE:

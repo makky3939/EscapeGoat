@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Action
 import RecordAction from './../../../actions/RecordAction.js'
 
 module.exports = React.createClass({
