@@ -50,7 +50,7 @@ module.exports = React.createClass({
               <li>クリック後に表示されたページの下部にある<code>ダウンロードボタン</code>を選択肢し、ダウンロードしてください。</li>
             </ol>
             <div className="row">
-              <div className="col-sm-10 col-sm-offset-1">
+              <div className="col-sm-8 col-sm-offset-2">
                 <div className="col-xs-6">
                   <div className="text-xs-center">
                     <small>step 1</small>
