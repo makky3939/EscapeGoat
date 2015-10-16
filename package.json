@@ -36,6 +36,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-react": "^3.0.1",
     "gulp-ruby-sass": "^2.0.4",
+    "licensify": "^2.0.1",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.4"
