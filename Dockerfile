@@ -22,11 +22,16 @@ RUN rm /usr/share/nginx/html/*
 # node
 RUN yum install -y nodejs npm
 
+# ruby
+RUN yum install -y ruby
+RUN gem install sass
+
 # clone repository
 RUN git clone https://github.com/makky3939/EscapeGoat.git
 
 # build
-RUN cd EscapeGoat && npm install && npm run build
+RUN cd EscapeGoat && npm install
+RUN cd EscapeGoat && npm run build
 RUN cp -r EscapeGoat/dst/* /usr/share/nginx/html/
 
 # port open
