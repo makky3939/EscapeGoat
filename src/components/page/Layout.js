@@ -34,7 +34,8 @@ module.exports = React.createClass({
                     <a href="http://www.makky.io" target="_blank">www.makky.io</a>
                   </li>
                 </ol>
-                <span>&copy; makky.io All Rights Reserved.</span>
+                <span>&copy; makky.io All Rights Reserved.<br /></span>
+                <span>EscapeGoat v0.9.0</span>
               </p>
             </div>
           </footer>
