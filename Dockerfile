@@ -21,7 +21,7 @@ RUN rm /usr/share/nginx/html/*
 
 # node
 RUN yum install -y nodejs npm
-RUN npm install -g npm@1.3.0
+RUN npm install -g npm@2.14.7
 
 # ruby
 RUN yum install -y ruby
