@@ -27,12 +27,12 @@ RUN yum install -y ruby
 RUN gem install sass
 
 # clone repository
-RUN cd /tmp && git clone https://github.com/makky3939/EscapeGoat.git
+RUN cd git clone https://github.com/makky3939/EscapeGoat.git
 
 # build
-RUN cd /tmp/EscapeGoat && npm install
-RUN cd /tmp/EscapeGoat && npm run build
-RUN cp -r /tmp/EscapeGoat/dst/* /usr/share/nginx/html/
+RUN cd EscapeGoat && npm install
+RUN cd EscapeGoat && npm run build
+RUN cp -r EscapeGoat/dst/* /usr/share/nginx/html/
 
 # port open
 EXPOSE 80
