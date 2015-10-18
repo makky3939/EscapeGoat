@@ -36,14 +36,78 @@ function destroyAll() {
 }
 
 const RecordStore = assign({}, EventEmitter.prototype, {
-
-  /**
-   * Get the entire collection of Records.
-   * @return {object}
-   */
   getAll: function() {
     return _records
   },
+
+  foundation: function() {
+    // console.log(_records)
+    let records = []
+
+    return records
+  },
+
+  special: function() {
+    const records = []
+    let myMajorSize = 0
+    let otherMajorSize = 0
+
+    let required = []
+    let optional = []
+    let free     = []
+
+    Object.keys(_records).map(function(index){if (_records[index].type === 'A') { records.push(_records[index]) }})
+
+    // required
+    records.forEach(function(element, index) {
+      const subjectCodes = [
+        'GE70103', 'GE60103', 'GE80103',
+        'GE50812', 'GE50822', 'GE50832',
+        'GE50712', 'GE50722', 'GE50732',
+        'GE51018', 'GE51028', 'GE51038', 'GE51048'
+      ]
+      if (subjectCodes.indexOf(element.subjectCode) >= 0 ) {
+        if (element.major == undefined) {
+          element.major = 'required'
+        }
+      }
+    })
+
+    // optional
+    records.forEach(function(element, index) {
+      if (element.major != 'required') {
+        if (element.subjectCode.match(/GE7/) && myMajorSize < 20) {
+          myMajorSize += Number(element.unit)
+          element.major = 'optional'
+        }
+        if (element.subjectCode.match(/GE[4,6,8]/) && otherMajorSize < 8) {
+          otherMajorSize += Number(element.unit)
+          element.major = 'optional'
+        }
+      }
+    })
+
+    records.forEach(function(element, index) {
+      switch(element.major) {
+        case 'required':
+          required.push(element)
+          break
+        case 'optional':
+          optional.push(element)
+          break
+        default:
+          free.push(element)
+          break
+      }
+    })
+
+    return {
+      required: required,
+      optional: optional,
+      free: free
+    }
+  },
+
 
   emitChange: function() {
     this.emit(CHANGE_EVENT)
@@ -70,6 +134,22 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     switch(actionType) {
       case RecordConstants.RECORD_CREATE:
         // TODO::validation
+
+        // const request = window.indexedDB.open('EscapeGoat_DB', 105)
+        // request.onsuccess = function(ev) {
+        //   const db = ev.target.result
+        //   const tx = db.transaction(["record"],"readwrite");
+        //   // このトランザクション内でアクティブなObjectを生成する
+        //   const store = tx.objectStore("record");
+        //   // putするリクエストを生成
+        //   const id = Math.floor(Math.random()* 1000000)
+        //   const req = store.put({item: record, timeStamp: id});
+        //   // 「putするリクエスト」が成功したら...
+        //   tx.oncomplete = function() { console.log('DB', 'OK') };
+        //   // 「putするリクエスト」が失敗したら...
+        //   tx.onerror = function(err) { console.log("xxx2", err); };
+        // }
+
         create(record)
         RecordStore.emitChange()
         break
