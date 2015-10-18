@@ -27,7 +27,7 @@ RUN yum install -y ruby
 RUN gem install sass
 
 # clone repository
-RUN cd git clone https://github.com/makky3939/EscapeGoat.git
+RUN git clone https://github.com/makky3939/EscapeGoat.git
 
 # build
 RUN cd EscapeGoat && npm install
