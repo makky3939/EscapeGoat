@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "escapegoat",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "gulp --gulpfile gulpfile/index.coffee build",
     "start": "gulp --gulpfile gulpfile/index.coffee server",
