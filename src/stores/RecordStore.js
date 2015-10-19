@@ -47,6 +47,67 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     return records
   },
 
+  specialBasic: function() {
+    const records = []
+    let mySize = 0
+    let required = []
+    let optional = []
+    let free     = []
+
+    Object.keys(_records).map(function(index){if (_records[index].type === 'B') { records.push(_records[index]) }})
+
+    // required
+    records.forEach(function(element, index) {
+      const subjectCodes = [
+        'GE10301',
+        'GE10413', 'GE10423',
+        'GE10612', 'GE10622', 'GE10712', 'GE10722',
+        'GE10801',
+        'GE10911',
+        'GE10201',
+        'GE10101',
+        'GE11512', 'GE11522', 'GE11532', 'GE11542',
+        'GE11012', 'GE11022', 'GE11112', 'GE11122', 'GE11212', 'GE11222'
+      ]
+      if (subjectCodes.indexOf(element.subjectCode) >= 0 ) {
+        if (element.major == undefined) {
+          element.major = 'required'
+        }
+      }
+    })
+
+    // optional
+    records.forEach(function(element, index) {
+      if (element.major != 'required') {
+        if (element.subjectCode.match(/GE2|GA/) && mySize < 32) {
+          mySize += Number(element.unit)
+          console.log(mySize)
+          element.major = 'optional'
+        }
+      }
+    })
+
+    records.forEach(function(element, index) {
+      switch(element.major) {
+        case 'required':
+          required.push(element)
+          break
+        case 'optional':
+          optional.push(element)
+          break
+        default:
+          free.push(element)
+          break
+      }
+    })
+
+    return {
+      required: required,
+      optional: optional,
+      free: free
+    }
+  },
+
   special: function() {
     const records = []
     let myMajorSize = 0

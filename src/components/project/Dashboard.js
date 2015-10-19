@@ -9,6 +9,7 @@ import RecordStore from '../../stores/RecordStore.js'
 function getRecordState() {
   return {
     foundation: RecordStore.foundation(),
+    specialBasic: RecordStore.specialBasic(),
     special: RecordStore.special()
   }
 }
@@ -53,6 +54,10 @@ const Dashboard = React.createClass({
     //   ]
     // })
 
+    const specialBasic_required = adjustRecord(this.state.specialBasic.required)
+    const specialBasic_optional = adjustRecord(this.state.specialBasic.optional)
+    const specialBasic_free = adjustRecord(this.state.specialBasic.free)
+
     const special_required = adjustRecord(this.state.special.required)
     const special_optional = adjustRecord(this.state.special.optional)
     const special_free = adjustRecord(this.state.special.free)
@@ -81,12 +86,15 @@ const Dashboard = React.createClass({
         <div className="row">
           <div className="col-sm-4">
             <h4>必修科目</h4>
+            <Table header={tableHeader} body={specialBasic_required} />
           </div>
           <div className="col-sm-4">
             <h4>選択科目</h4>
+            <Table header={tableHeader} body={specialBasic_optional} />
           </div>
           <div className="col-sm-4">
             <h4>自由科目</h4>
+            <Table header={tableHeader} body={specialBasic_free} />
           </div>
         </div>
 
