@@ -36,15 +36,77 @@ function destroyAll() {
 }
 
 const RecordStore = assign({}, EventEmitter.prototype, {
+  credit: function(records) {
+    let sum = 0
+    const exams = ["A+", "A", "B", "C", "P"]
+    records.forEach(function(element, index) {
+      if (exams.indexOf(element.score) >= 0 ) {
+        sum += Number(element.unit)
+      }
+    })
+    return sum
+  },
+
+  count: function() {
+    return Object.keys(_records).length
+  },
+
   getAll: function() {
     return _records
   },
 
-  foundation: function() {
-    // console.log(_records)
-    let records = []
+  basic: function() {
+    const records = []
+    let required = []
+    let optional = []
+    let free     = []
 
-    return records
+    Object.keys(_records).map(function(index){if (_records[index].type === 'C') { records.push(_records[index]) }})
+
+    // required
+    records.forEach(function(element, index) {
+      const subjectCodes = [
+        '1120102', '1120202', '1120302', '1120402',
+        '1320013', '1320023', '1320033', '1320043'
+      ]
+      if (subjectCodes.indexOf(element.subjectCode) >= 0 ) {
+        if (element.major == undefined) {
+          element.major = 'required'
+        }
+      }
+      if (element.subjectCode.match(/^22|^21|^1A|^1B/)) {
+        element.major = 'required'
+      }
+
+    })
+
+    // optional
+    records.forEach(function(element, index) {
+      if (element.subjectCode.match(/^31|^34/)) {
+        element.major = 'optional'
+      }
+
+    })
+
+    records.forEach(function(element, index) {
+      switch(element.major) {
+        case 'required':
+          required.push(element)
+          break
+        case 'optional':
+          optional.push(element)
+          break
+        default:
+          free.push(element)
+          break
+      }
+    })
+
+    return {
+      required: { records: required, credit: this.credit(required) },
+      optional: { records: optional, credit: this.credit(optional) },
+      free: { records: free, credit: this.credit(free) }
+    }
   },
 
   specialBasic: function() {
@@ -81,7 +143,6 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       if (element.major != 'required') {
         if (element.subjectCode.match(/GE2|GA/) && mySize < 32) {
           mySize += Number(element.unit)
-          console.log(mySize)
           element.major = 'optional'
         }
       }
@@ -102,9 +163,9 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     })
 
     return {
-      required: required,
-      optional: optional,
-      free: free
+      required: { records: required, credit: this.credit(required) },
+      optional: { records: optional, credit: this.credit(optional) },
+      free: { records: free, credit: this.credit(free) }
     }
   },
 
@@ -163,9 +224,9 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     })
 
     return {
-      required: required,
-      optional: optional,
-      free: free
+      required: { records: required, credit: this.credit(required) },
+      optional: { records: optional, credit: this.credit(optional) },
+      free: { records: free, credit: this.credit(free) }
     }
   },
 

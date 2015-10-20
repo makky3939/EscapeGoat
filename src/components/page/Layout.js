@@ -2,6 +2,7 @@ import React from 'react'
 
 // Component
 import Navbar from '../project/Navbar.js'
+import Footer from '../project/Footer.js'
 
 // Action
 import RecordAction from './../../actions/RecordAction.js'
@@ -59,34 +60,8 @@ module.exports = React.createClass({
           <div className="col-sm-12">
             {this.props.children}
           </div>
-
-          <footer className="col-xs-12">
-            <hr />
-            <div className="text-xs-center">
-              <a href="#top">
-                <i className="fa fa-angle-double-up fa-fw fa-lg" />
-              </a>
-              <p>
-                <ol className="list-inline">
-                  <li>
-                    <a href="/">Top</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/makky3939/EscapeGoat" target="_blank">Github Project</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/makky3939/EscapeGoat/issues" target="_blank">Issues</a>
-                  </li>
-                  <li>
-                    <a href="http://www.makky.io" target="_blank">www.makky.io</a>
-                  </li>
-                </ol>
-                <span>&copy; makky.io All Rights Reserved.<br /></span>
-                <span>EscapeGoat v0.9.0</span>
-              </p>
-            </div>
-          </footer>
         </div>
+        <Footer />
       </div>
     )
   }

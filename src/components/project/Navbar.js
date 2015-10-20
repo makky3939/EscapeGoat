@@ -1,7 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+// Store
+import RecordStore from '../../stores/RecordStore.js'
+
+function getRecordState() {
+  return {
+    count: RecordStore.count()
+  };
+}
+
 const Navbar = React.createClass({
+  getInitialState: function() {
+    return getRecordState();
+  },
+
+  componentDidMount: function() {
+    RecordStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    RecordStore.removeChangeListener(this._onChange);
+  },
+
   render() {
     return (
       <nav className="navbar navbar-dark bg-inverse">
@@ -9,10 +30,19 @@ const Navbar = React.createClass({
           <Link className="navbar-brand" to="/usage" >EscapeGoat</Link>
           <ul className="nav navbar-nav pull-right">
             <li className="nav-item">
-              <Link className="nav-link" to="/dashboard" activeClassName="active">Dashboard</Link>
+              <Link className="nav-link" to="/usage" activeClassName="active">Usage</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/records" activeClassName="active">履修科目一覧</Link>
+              { !this.state.count ?
+              <Link className="nav-link disabled" to="">Dashboard</Link>:
+              <Link className="nav-link" to="/dashboard" activeClassName="active">Dashboard</Link>
+              }
+            </li>
+            <li className="nav-item">
+              { !this.state.count ?
+                <Link className="nav-link disabled" to="">履修科目一覧</Link>:
+                <Link className="nav-link" to="/records" activeClassName="active">履修科目一覧</Link>
+              }
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about" activeClassName="active">About</Link>
@@ -21,6 +51,10 @@ const Navbar = React.createClass({
         </div>
       </nav>
     )
+  },
+
+  _onChange: function() {
+    this.setState(getRecordState());
   }
 })
 

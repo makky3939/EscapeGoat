@@ -10,8 +10,17 @@ const TableRow = React.createClass({
   },
   render() {
     const type = this.props.type
+    let rowStyle = ""
+    switch (this.props.list[2]) {
+      case "D":
+        rowStyle = "table-danger"
+        break
+      case "":
+        rowStyle = "table-success"
+        break
+    }
     return (
-      <tr>
+      <tr className={rowStyle}>
         {
           this.props.list.map(function(item, index) {
             return <TableCell key={ index } type={ type } item={ item } />
