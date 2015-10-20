@@ -11,7 +11,7 @@ import Dashboard from './components/project/Dashboard.js'
 import About from './components/project/About.js'
 
 React.render((
-  <Router>
+  <Router onUpdate={() => window.scrollTo(0, 0)}>
     <Route component={Layout}>
       <Route path="usage" component={Usage} />
       <Route path="records" component={Records} />

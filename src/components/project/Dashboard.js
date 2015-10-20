@@ -90,22 +90,22 @@ const Dashboard = React.createClass({
             <div className="col-sm-4">
               <h3>
                 必修科目(総合+体育)
-                <small className="pull-right label label-pill label-default">{basic.required.credit}/10</small>
               </h3>
+              <p><span className="pull-right">{basic.required.credit}/10</span></p>
               <Table header={tableHeader} body={adjustRecord(basic.required.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 選択科目(外国語)
-                <small className="pull-right label label-pill label-default">{basic.optional.credit}/9</small>
               </h3>
+              <p><span className="pull-right">{basic.optional.credit}/9</span></p>
               <Table header={tableHeader} body={adjustRecord(basic.optional.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 自由科目
-                <small className="pull-right label label-pill label-default">{basic.free.credit}/0</small>
               </h3>
+              <p><span className="pull-right">{basic.free.credit}/0</span></p>
               <Table header={tableHeader} body={adjustRecord(basic.free.records)} />
             </div>
           </div>
@@ -116,22 +116,22 @@ const Dashboard = React.createClass({
             <div className="col-sm-4">
               <h3>
                 必修科目
-                <small className="pull-right label label-pill label-default">{specialBasic.required.credit}/22.5</small>
               </h3>
+              <p><span className="pull-right">{specialBasic.required.credit}/22.5</span></p>
               <Table header={tableHeader} body={adjustRecord(specialBasic.required.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 選択科目
-                <small className="pull-right label label-pill label-default">{specialBasic.optional.credit}/32</small>
               </h3>
+              <p><span className="pull-right">{specialBasic.optional.credit}/32</span></p>
               <Table header={tableHeader} body={adjustRecord(specialBasic.optional.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 自由科目
-                <small className="pull-right label label-pill label-default">{specialBasic.free.credit}/0</small>
               </h3>
+              <p><span className="pull-right">{specialBasic.free.credit}/0</span></p>
               <Table header={tableHeader} body={adjustRecord(specialBasic.free.records)} />
             </div>
           </div>
@@ -142,22 +142,22 @@ const Dashboard = React.createClass({
             <div className="col-sm-4">
               <h3>
                 必修科目
-                <small className="pull-right label label-pill label-default">{special.required.credit}/10</small>
               </h3>
+              <p><span className="pull-right">{special.required.credit}/10</span></p>
               <Table header={tableHeader} body={adjustRecord(special.required.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 選択科目
-                <small className="pull-right label label-pill label-default">{special.optional.credit}/30</small>
               </h3>
+              <p><span className="pull-right">{special.optional.credit}/30</span></p>
               <Table header={tableHeader} body={adjustRecord(special.optional.records)} />
             </div>
             <div className="col-sm-4">
               <h3>
                 自由科目
-                <small className="pull-right label label-pill label-default">{special.free.credit}/0</small>
               </h3>
+              <p><span className="pull-right">{special.free.credit}/0</span></p>
               <Table header={tableHeader} body={adjustRecord(special.free.records)} />
             </div>
           </div>
