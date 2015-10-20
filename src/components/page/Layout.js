@@ -56,10 +56,8 @@ module.exports = React.createClass({
     return (
       <div>
         <Navbar />
-        <div className="container">
-          <div className="col-sm-12">
-            {this.props.children}
-          </div>
+        <div>
+          { this.props.children }
         </div>
         <Footer />
       </div>

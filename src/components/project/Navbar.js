@@ -27,7 +27,9 @@ const Navbar = React.createClass({
     return (
       <nav className="navbar navbar-dark bg-inverse">
         <div className="container">
-          <Link className="navbar-brand" to="/usage" >EscapeGoat</Link>
+          <Link className="brand" to="/usage" >
+            <img src="assets/images/goat-head.png" width="38" height="auto" />
+          </Link>
           <ul className="nav navbar-nav pull-right">
             <li className="nav-item">
               <Link className="nav-link" to="/usage" activeClassName="active">Usage</Link>
@@ -43,9 +45,6 @@ const Navbar = React.createClass({
                 <Link className="nav-link disabled" to="">履修科目一覧</Link>:
                 <Link className="nav-link" to="/records" activeClassName="active">履修科目一覧</Link>
               }
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about" activeClassName="active">About</Link>
             </li>
           </ul>
         </div>

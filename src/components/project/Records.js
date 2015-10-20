@@ -46,10 +46,11 @@ let TableView = React.createClass({
     })
 
     return (
-      <div>
-        <h1>履修科目一覧</h1>
-        <hr />
-        <Table header={tableHeader} body={records} />
+      <div className="container">
+        <div className="col-sm-12">
+          <h1>履修科目一覧</h1>
+          <Table header={tableHeader} body={records} />
+        </div>
       </div>
     )
   },
