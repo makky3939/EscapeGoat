@@ -14,7 +14,7 @@ let _records = {}
  * @param {string} text The content of the Record
  */
 function create(record) {
-  const id = Math.floor(Math.random()* 1000000)
+  const id = Object.keys(_records).length
   _records[id] = {
     id: id,
     type: record.type,
