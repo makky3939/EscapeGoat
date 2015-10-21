@@ -2,22 +2,24 @@ import React from 'react'
 
 // UI
 import Table from '../ui/Table/index.js'
+import Container from './../ui/Container.js'
 
 // Store
 import RecordStore from '../../stores/RecordStore.js'
 
+
 /**
- * Retrieve the current TODO data from the TodoStore
+ * Retrieve the current Record data from the RecordStore
  */
 function getRecordState() {
   return {
     allRecords: RecordStore.getAll()
-  };
+  }
 }
 
 let TableView = React.createClass({
   getInitialState: function() {
-    return getRecordState();
+    return getRecordState()
   },
 
   componentDidMount: function() {
@@ -46,19 +48,18 @@ let TableView = React.createClass({
     })
 
     return (
-      <div>
-        <h2>履修科目一覧</h2>
-        <hr />
+      <Container style="col-sm-12">
+        <h1>履修科目一覧</h1>
         <Table header={tableHeader} body={records} />
-      </div>
+      </Container>
     )
   },
 
   /**
-   * Event handler for 'change' events coming from the TodoStore
+   * Event handler for 'change' events coming from the RecordStore
    */
   _onChange: function() {
-    this.setState(getTodoState());
+    this.setState(getRecordState())
   }
 })
 

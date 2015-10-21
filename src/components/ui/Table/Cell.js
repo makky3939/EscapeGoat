@@ -5,6 +5,7 @@ const TableCell = React.createClass({
     type: React.PropTypes.string.isRequired,
     item: React.PropTypes.string
   },
+
   render() {
     switch(this.props.type) {
       case "head":

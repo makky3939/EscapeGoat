@@ -8,6 +8,7 @@ const Table = React.createClass({
     header: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     body: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.string)).isRequired
   },
+
   render() {
     return (
       <table className="table">
