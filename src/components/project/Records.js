@@ -1,7 +1,7 @@
 import React from 'react'
 
 // UI
-import Table from '../ui/Table/index.js'
+import Table from '../ui/Table/Index.js'
 import Container from './../ui/Container.js'
 
 // Store
