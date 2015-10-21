@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = React.createClass({
   render() {
     return (
-      <footer className="Footer" >
+      <footer className="Footer">
         <div className="text-xs-center">
           <a onClick={() => window.scrollTo(0, 0)}>
             <i className="fa fa-angle-double-up fa-fw fa-lg" />

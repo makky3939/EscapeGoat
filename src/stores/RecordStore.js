@@ -1,13 +1,15 @@
 import { EventEmitter} from 'events'
 import assign from 'object-assign'
 
-import TodoConstants from './../constants/RecordConstants.js'
+// Dispatcher
 import AppDispatcher from './../dispatcher/AppDispatcher.js'
+
+// Constants
 import RecordConstants from './../constants/RecordConstants.js'
 
 const CHANGE_EVENT = 'change'
-
 let _records = {}
+
 
 /**
  * Create a Record item.
@@ -178,6 +180,9 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     let optional = []
     let free     = []
 
+    let myMajorPattern
+    let otherMajorPattern
+
     Object.keys(_records).map(function(index){if (_records[index].type === 'A') { records.push(_records[index]) }})
 
     // required
@@ -195,14 +200,37 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       }
     })
 
+    // major
+    records.forEach(function(element, index) {
+      const subjectCodes = [
+        'GE70103', 'GE60103', 'GE80103'
+      ]
+      if (subjectCodes.indexOf(element.subjectCode) >= 0 ) {
+        switch (subjectCodes.indexOf(element.subjectCode)) {
+          case 0:
+            myMajorPattern = /GE7/
+            otherMajorPattern = /GE[4,6,8]/
+            break
+          case 1:
+            myMajorPattern = /GE6/
+            otherMajorPattern = /GE[4,7,8]/
+            break
+          default:
+            myMajorPattern = /GE8/
+            otherMajorPattern = /GE[4,6,7]/
+            break
+        }
+      }
+    })
+
     // optional
     records.forEach(function(element, index) {
       if (element.major != 'required') {
-        if (element.subjectCode.match(/GE7/) && myMajorSize < 20) {
+        if (element.subjectCode.match(myMajorPattern) && myMajorSize < 20) {
           myMajorSize += Number(element.unit)
           element.major = 'optional'
         }
-        if (element.subjectCode.match(/GE[4,6,8]/) && otherMajorSize < 8) {
+        if (element.subjectCode.match(otherMajorPattern) && otherMajorSize < 8) {
           otherMajorSize += Number(element.unit)
           element.major = 'optional'
         }
@@ -229,7 +257,6 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       free: { records: free, credit: this.credit(free) }
     }
   },
-
 
   emitChange: function() {
     this.emit(CHANGE_EVENT)
@@ -261,14 +288,10 @@ const RecordStore = assign({}, EventEmitter.prototype, {
         // request.onsuccess = function(ev) {
         //   const db = ev.target.result
         //   const tx = db.transaction(["record"],"readwrite");
-        //   // このトランザクション内でアクティブなObjectを生成する
         //   const store = tx.objectStore("record");
-        //   // putするリクエストを生成
         //   const id = Math.floor(Math.random()* 1000000)
         //   const req = store.put({item: record, timeStamp: id});
-        //   // 「putするリクエスト」が成功したら...
         //   tx.oncomplete = function() { console.log('DB', 'OK') };
-        //   // 「putするリクエスト」が失敗したら...
         //   tx.onerror = function(err) { console.log("xxx2", err); };
         // }
 

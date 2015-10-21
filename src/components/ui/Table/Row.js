@@ -8,6 +8,7 @@ const TableRow = React.createClass({
     type: React.PropTypes.string.isRequired,
     list: React.PropTypes.array.isRequired
   },
+
   render() {
     const type = this.props.type
     let rowStyle = ""

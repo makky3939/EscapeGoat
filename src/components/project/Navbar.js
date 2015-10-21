@@ -4,23 +4,24 @@ import { Link } from 'react-router'
 // Store
 import RecordStore from '../../stores/RecordStore.js'
 
+
 function getRecordState() {
   return {
     count: RecordStore.count()
-  };
+  }
 }
 
 const Navbar = React.createClass({
   getInitialState: function() {
-    return getRecordState();
+    return getRecordState()
   },
 
   componentDidMount: function() {
-    RecordStore.addChangeListener(this._onChange);
+    RecordStore.addChangeListener(this._onChange)
   },
 
   componentWillUnmount: function() {
-    RecordStore.removeChangeListener(this._onChange);
+    RecordStore.removeChangeListener(this._onChange)
   },
 
   render() {
@@ -28,7 +29,7 @@ const Navbar = React.createClass({
       <nav className="navbar navbar-dark bg-inverse">
         <div className="container">
           <Link className="brand" to="/usage" >
-            <img src="assets/images/goat-head.png" width="38" height="auto" />
+            <img src="assets/images/goat-head_gray.png" width="38" height="auto" />
           </Link>
           <ul className="nav navbar-nav pull-right">
             <li className="nav-item">
@@ -56,7 +57,7 @@ const Navbar = React.createClass({
   },
 
   _onChange: function() {
-    this.setState(getRecordState());
+    this.setState(getRecordState())
   }
 })
 
