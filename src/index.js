@@ -10,8 +10,15 @@ import Records from './components/project/Records.js'
 import Dashboard from './components/project/Dashboard.js'
 import About from './components/project/About.js'
 
+function onUpdateHandler() {
+  window.scrollTo(0, 0)
+  ga('send', 'pageview', location.hash.split("?")[0].split("#")[1])
+}
+
+onUpdateHandler()
+
 React.render((
-  <Router onUpdate={() => window.scrollTo(0, 0)}>
+  <Router onUpdate={() => onUpdateHandler()}>
     <Route component={Layout}>
       <Route path="usage" component={Usage} />
       <Route path="records" component={Records} />

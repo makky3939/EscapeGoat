@@ -46,6 +46,9 @@ const Navbar = React.createClass({
                 <Link className="nav-link" to="/records" activeClassName="active">履修科目一覧</Link>
               }
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about" activeClassName="active">About</Link>
+            </li>
           </ul>
         </div>
       </nav>
