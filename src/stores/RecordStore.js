@@ -36,7 +36,6 @@ class RecordUtility {
   }
 
   find(id) {
-    console.log(this.items[id])
     return this.items[id]
   }
 
