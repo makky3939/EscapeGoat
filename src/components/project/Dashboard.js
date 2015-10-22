@@ -50,7 +50,7 @@ const Dashboard = React.createClass({
     const specialBasic = this.state.specialBasic
     const special = this.state.special
 
-    const required = specialBasic.required.credit + special.required.credit + basic.required.credit
+    const required = specialBasic.required.credit + special.required.credit + basic.required.credit + basic.optional.credit
     const optional = specialBasic.optional.credit + special.optional.credit
     const free = specialBasic.free.credit + special.free.credit + basic.free.credit
     return (
