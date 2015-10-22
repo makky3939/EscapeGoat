@@ -12,7 +12,7 @@ import About from './components/project/About.js'
 
 function onUpdateHandler() {
   window.scrollTo(0, 0)
-  ga('send', 'pageview', location.hash.split("?")[0].split("#")[1])
+  ga('send', 'pageview', "/escapegoat" + location.hash.split("?")[0].split("#")[1])
 }
 
 onUpdateHandler()
