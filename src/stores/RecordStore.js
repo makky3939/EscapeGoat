@@ -25,7 +25,9 @@ class RecordUtility {
   }
 
   division(index, division) {
-    if (this.items[index].division == undefined) {
+    if (this.items[index].division === division) {
+      return true
+    } else if (this.items[index].division === undefined) {
       this.items[index].division = division
       return true
     } else {
