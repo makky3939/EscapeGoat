@@ -158,7 +158,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // optional
     for (var index of record.ids) {
-      if (record.find(index).subjectCode.match(/^31|^34/)) {
+      if (record.find(index).subjectCode.match(/^3[1,2,3,4,5,6,7]/)) {
         record.division(index, OPTIONAL_FLAG)
       }
     }
