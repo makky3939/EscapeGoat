@@ -145,14 +145,20 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     ]
 
     const record = new RecordUtility(_records, 'C')
+    let generalAll = 0
 
     // required
     for (var index of record.ids) {
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
-      if (record.find(index).subjectCode.match(/^22|^21|^1A|^1B|^1C/)) {
+      if (record.find(index).subjectCode.match(/^22|^21/)) {
         record.division(index, REQUIRED_FLAG)
+      }
+      if (record.find(index).subjectCode.match(/^1A|^1B|^1C/) && generalAll < 6) {
+        if (record.division(index, REQUIRED_FLAG)) {
+          generalAll += record.credit([record.find(index)])
+        }
       }
     }
 
