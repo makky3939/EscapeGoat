@@ -37,13 +37,24 @@ function destroyAll() {
   _records = []
 }
 
+function credit(records) {
+  let sum = 0.0
+  const exams = ["A+", "A", "B", "C", "P", ""]
+  records.forEach(function(element, index) {
+    if (exams.indexOf(element.score) >= 0 ) {
+      sum = sum + Number(element.unit)
+    }
+  })
+  return sum
+}
+
 const RecordStore = assign({}, EventEmitter.prototype, {
   credit: function(records) {
-    let sum = 0
-    const exams = ["A+", "A", "B", "C", "P"]
+    let sum = 0.0
+    const exams = ["A+", "A", "B", "C", "P", ""]
     records.forEach(function(element, index) {
       if (exams.indexOf(element.score) >= 0 ) {
-        sum += Number(element.unit)
+        sum = sum + Number(element.unit)
       }
     })
     return sum
@@ -72,9 +83,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
         '1320013', '1320023', '1320033', '1320043'
       ]
       if (subjectCodes.indexOf(element.subjectCode) >= 0 ) {
-        if (element.major == undefined) {
-          element.major = 'required'
-        }
+        element.major = 'required'
       }
       if (element.subjectCode.match(/^22|^21|^1A|^1B/)) {
         element.major = 'required'
@@ -87,7 +96,6 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       if (element.subjectCode.match(/^31|^34/)) {
         element.major = 'optional'
       }
-
     })
 
     records.forEach(function(element, index) {
@@ -144,7 +152,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     records.forEach(function(element, index) {
       if (element.major != 'required') {
         if (element.subjectCode.match(/GE2|GA/) && mySize < 32) {
-          mySize += Number(element.unit)
+          mySize += credit([element])
           element.major = 'optional'
         }
       }
@@ -180,8 +188,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     let optional = []
     let free     = []
 
-    let myMajorPattern
-    let otherMajorPattern
+    let myMajorPattern = /GE8/
+    let otherMajorPattern = /GE[4,6,7]/
 
     Object.keys(_records).map(function(index){if (_records[index].type === 'A') { records.push(_records[index]) }})
 
@@ -215,10 +223,6 @@ const RecordStore = assign({}, EventEmitter.prototype, {
             myMajorPattern = /GE6/
             otherMajorPattern = /GE[4,7,8]/
             break
-          default:
-            myMajorPattern = /GE8/
-            otherMajorPattern = /GE[4,6,7]/
-            break
         }
       }
     })
@@ -227,11 +231,11 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     records.forEach(function(element, index) {
       if (element.major != 'required') {
         if (element.subjectCode.match(myMajorPattern) && myMajorSize < 20) {
-          myMajorSize += Number(element.unit)
+          myMajorSize = myMajorSize + credit([element])
           element.major = 'optional'
         }
         if (element.subjectCode.match(otherMajorPattern) && otherMajorSize < 8) {
-          otherMajorSize += Number(element.unit)
+          otherMajorSize = otherMajorSize + credit([element])
           element.major = 'optional'
         }
       }
