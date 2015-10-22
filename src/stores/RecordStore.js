@@ -149,7 +149,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
-      if (record.find(index).subjectCode.match(/^22|^21|^1A|^1B/)) {
+      if (record.find(index).subjectCode.match(/^22|^21|^1A|^1B|^1C/)) {
         record.division(index, REQUIRED_FLAG)
       }
     }
