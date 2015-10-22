@@ -41,9 +41,9 @@ const About = React.createClass({
         </section>
 
         <section>
-          <h2>バグ報告</h2>
+          <h2>バグ報告と要望</h2>
           <p>
-            卒業判定や集計結果の表示等に不具合がある場合は
+            卒業判定や集計結果の表示等に不具合がある場合、また追加してほしい機能があれば
             <ul>
               <li><a href="https://twitter.com/_Makky_" target="_blank">Twitter</a></li>
               <li><a href="https://github.com/makky3939/EscapeGoat/issues" target="_blank">Github Issues</a></li>
