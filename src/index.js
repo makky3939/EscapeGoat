@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Route, Redirect } from 'react-router'
+import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 // Page components
 import Layout from './components/page/Layout.js'
@@ -12,13 +13,13 @@ import About from './components/project/About.js'
 
 function onUpdateHandler() {
   window.scrollTo(0, 0)
-  ga('send', 'pageview', "/escapegoat" + location.hash.split("?")[0].split("#")[1])
+  ga('send', 'pageview', "/escapegoat" + location.pathname)
 }
 
 onUpdateHandler()
 
 React.render((
-  <Router onUpdate={() => onUpdateHandler()}>
+  <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory()}>
     <Route component={Layout}>
       <Route path="usage" component={Usage} />
       <Route path="records" component={Records} />
