@@ -26,6 +26,6 @@ React.render((
       <Route path="dashboard" component={Dashboard} />
       <Route path="about" component={About} />
     </Route>
-    <Redirect from="escapegoat/" to="escapegoat/usage" />
+    <Redirect from="/" to="escapegoat/usage" />
   </Router>
 ), document.body)
