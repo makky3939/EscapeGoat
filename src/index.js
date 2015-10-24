@@ -21,10 +21,10 @@ onUpdateHandler()
 React.render((
   <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory()}>
     <Route path="escapegoat/" component={Layout}>
-      <Route path="usage" component={Usage} />
-      <Route path="records" component={Records} />
-      <Route path="dashboard" component={Dashboard} />
-      <Route path="about" component={About} />
+      <Route path="/usage" component={Usage} />
+      <Route path="/records" component={Records} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/about" component={About} />
     </Route>
     <Redirect from="/" to="escapegoat/usage" />
   </Router>
