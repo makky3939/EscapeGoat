@@ -24,7 +24,7 @@ const Footer = React.createClass({
               </li>
             </ol>
             <span>&copy; makky.io All Rights Reserved.<br /></span>
-            <span>EscapeGoat v1.0.10</span>
+            <span>EscapeGoat v1.0.11</span>
           </p>
         </div>
       </footer>
