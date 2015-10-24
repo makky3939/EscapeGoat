@@ -33,12 +33,12 @@ const Navbar = React.createClass({
           </Link>
           <ul className="nav navbar-nav pull-right">
             <li className="nav-item">
-              <Link className="nav-link" to="/usage" activeClassName="active">Usage</Link>
+              <Link className="nav-link" to="/usage" activeClassName="active">使い方</Link>
             </li>
             <li className="nav-item">
               { !this.state.count ?
               <Link className="nav-link disabled" to="">Dashboard</Link>:
-              <Link className="nav-link" to="/dashboard" activeClassName="active">Dashboard</Link>
+              <Link className="nav-link" to="/dashboard" activeClassName="active">卒業判定</Link>
               }
             </li>
             <li className="nav-item">
@@ -48,7 +48,7 @@ const Navbar = React.createClass({
               }
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" activeClassName="active">About</Link>
+              <Link className="nav-link" to="/about" activeClassName="active">アプリについて</Link>
             </li>
           </ul>
         </div>

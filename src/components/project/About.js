@@ -7,7 +7,7 @@ const About = React.createClass({
   render() {
     return (
       <Container style="col-sm-12">
-        <h1>About</h1>
+        <h1>アプリについて</h1>
         <hr />
         <section>
           <h2>EscapeGoatについて</h2>

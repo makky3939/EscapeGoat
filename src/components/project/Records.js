@@ -31,7 +31,7 @@ let TableView = React.createClass({
   },
 
   render() {
-    const tableHeader = ["科目区分", "履修年度", "期間", "科目番号", "科目名", "教員", "成績", "単位"]
+    const tableHeader = ["区分", "年度", "期間", "科目番号", "科目名", "教員", "成績", "単位"]
     const allRecords = this.state.allRecords
     const records = Object.keys(allRecords).map(function(index) {
       let record = allRecords[index]
@@ -50,6 +50,7 @@ let TableView = React.createClass({
     return (
       <Container style="col-sm-12">
         <h1>履修科目一覧</h1>
+        <hr />
         <Table header={tableHeader} body={records} />
       </Container>
     )

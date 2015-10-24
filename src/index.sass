@@ -1,19 +1,34 @@
 @charset "utf-8"
+@import url(https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff|Source+Sans+Pro:300)
 
 body
   font-family: "メイリオ", Meiryo, 'Hiragino Kaku Gothic Pro', 'MS PGothic', 'M+ 1P', sans-serif
+  min-width: 500px
 
 h1,
 h2,
 h3
   margin-bottom: 1.6rem
 
+p
+  line-height: 1.6rem
+
 .jumbotron
-  background: #1E2832
+  background-image: url('../assets/images/goat-bg.png')
   color: #ffffff
   border-radius: 0
+  background-size: cover
+  margin-bottom: 4rem
   h1
-    letter-spacing: 0.4rem
+    font-family: 'Herr Von Muellerhoff', cursive
+    margin-top: 18%
+    margin-bottom: 1rem
+    font-size: 5.5rem
+    letter-spacing: 0.3rem
+  p
+    letter-spacing: 0.16rem
+    font-size: 1.1rem
+    font-family: 'Source Sans Pro', sans-serif
 
 .navbar
   border-radius: 0
@@ -26,6 +41,7 @@ h3
 
 .table th
   padding: .45rem .25rem
+  min-width: 3rem
 
 .blockquote
   font-size: 1rem
@@ -40,8 +56,10 @@ section
   background: #1E2832
   color: #a5a9ad
   .fa-lg
-    font-size: 2rem
+    font-size: 2.8rem
     margin-bottom: .6rem
+    &:hover
+      color: #fff
   a
     color: #a5a9ad
     text-decoration: underline

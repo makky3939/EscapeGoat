@@ -11,18 +11,20 @@ const Table = React.createClass({
 
   render() {
     return (
-      <table className="table">
-        <thead className="thead-default">
-          <TableRow type="head" list={ this.props.header } />
-        </thead>
-        <tbody>
-          {
-            this.props.body.map(function(items, index) {
-              return <TableRow key={index} type="body" list={items} />
-            })
-          }
-        </tbody>
-      </table>
+      <div className="table-responsive">
+        <table className="table">
+          <thead className="thead-default">
+            <TableRow type="head" list={ this.props.header } />
+          </thead>
+          <tbody>
+            {
+              this.props.body.map(function(items, index) {
+                return <TableRow key={index} type="body" list={items} />
+              })
+            }
+          </tbody>
+        </table>
+      </div>
     )
   }
 })
