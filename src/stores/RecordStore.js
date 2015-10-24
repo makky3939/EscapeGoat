@@ -95,18 +95,27 @@ class RecordUtility {
  * Create a Record item.
  * @param {string} text The content of the Record
  */
-function create(record) {
+function create(record, internal) {
   const id = Object.keys(_records).length
-  _records[id] = {
-    id: id,
-    type: record.type,
-    year: record.year,
-    term: record.term,
-    subjectCode: record.subjectCode,
-    subjectName: record.subjectName,
-    teacher: record.teacher,
-    score: record.score,
-    unit: record.unit
+
+  if (record.type != '') {
+    _records[id] = {
+      id: id,
+      type: record.type,
+      year: record.year,
+      term: record.term,
+      subjectCode: record.subjectCode,
+      subjectName: record.subjectName,
+      teacher: record.teacher,
+      score: record.score,
+      unit: record.unit
+    }
+
+    console.log("record", Object.keys(_records).length, _records[id])
+
+    if (!internal) {
+      sessionStorage.setItem(id, JSON.stringify(_records[id]))
+    }
   }
 }
 
@@ -131,6 +140,44 @@ function credit(records) {
 const RecordStore = assign({}, EventEmitter.prototype, {
   count: function() {
     return Object.keys(_records).length
+  },
+
+  weightedAverage: function() {
+    const exams = ["A+", "A", "B", "C", "D"]
+    let score = {
+      ap: 0.0,
+      a: 0.0,
+      b: 0.0,
+      c: 0.0,
+      d: 0.0
+    }
+
+    for (var index of Object.keys(_records)) {
+      let record = _records[index]
+      switch (exams.indexOf(record.score)) {
+        case 0:
+          score.ap += Number(record.unit)
+          break
+        case 1:
+          score.a += Number(record.unit)
+          break
+        case 2:
+          score.b += Number(record.unit)
+          break
+        case 3:
+          score.c += Number(record.unit)
+          break
+        case 4:
+          score.d += Number(record.unit)
+          break
+      }
+    }
+
+    return (
+      (score.ap * 4 + score.a * 3 + score.b * 2 + score.c * 1)
+      /
+      (score.ap + score.a + score.b + score.c + score.d)
+    ).toFixed(2)
   },
 
   getAll: function() {
@@ -285,21 +332,11 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   dispatcherIndex: AppDispatcher.register(function(payload) {
     let actionType = payload.actionType
     let record = payload.record
+    let internal = payload.internal
 
     switch(actionType) {
       case RecordConstants.RECORD_CREATE:
-        // TODO::validation
-        // const request = window.indexedDB.open('EscapeGoat_DB', 105)
-        // request.onsuccess = function(ev) {
-        //   const db = ev.target.result
-        //   const tx = db.transaction(["record"],"readwrite");
-        //   const store = tx.objectStore("record");
-        //   const id = Math.floor(Math.random()* 1000000)
-        //   const req = store.put({item: record, timeStamp: id});
-        //   tx.oncomplete = function() { console.log('DB', 'OK') };
-        //   tx.onerror = function(err) { console.log("xxx2", err); };
-        // }
-        create(record)
+        create(record, internal)
         RecordStore.emitChange()
         break
 

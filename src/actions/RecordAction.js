@@ -6,10 +6,11 @@ let RecordActions = {
   /**
    * @param  {object} record
    */
-  create: function(record) {
+  create: function(record, internal) {
     AppDispatcher.dispatch({
       actionType: RecordConstants.RECORD_CREATE,
-      record: record
+      record: record,
+      internal: internal
     })
   },
   /**

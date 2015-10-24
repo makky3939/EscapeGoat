@@ -34,10 +34,9 @@ module.exports = React.createClass({
         <div className="jumbotron text-xs-center">
           <h1>EscapeGoat</h1>
           <p>The winner solution, for klis.</p>
-          <img src="assets/images/goat-head_gray.png" width="192" height="auto" />
         </div>
 
-        <Container style="col-sm-8 col-sm-offset-2">
+        <Container style="col-md-8 col-md-offset-2 col-sm-12">
           <section>
             <h2>特徴</h2>
             <section>
@@ -96,7 +95,6 @@ module.exports = React.createClass({
                   <strong>Tips</strong> 指定したファイルはこのコンピュータ内で集計処理を行うために使用します
                 </div>
               </p>
-              <hr />
             </section>
 
             <section>
