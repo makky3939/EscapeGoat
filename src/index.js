@@ -20,7 +20,7 @@ onUpdateHandler()
 
 React.render((
   <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory()}>
-    <Route component={Layout}>
+    <Route path="escapegoat/" component={Layout}>
       <Route path="usage" component={Usage} />
       <Route path="records" component={Records} />
       <Route path="dashboard" component={Dashboard} />
