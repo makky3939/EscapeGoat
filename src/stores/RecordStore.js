@@ -111,8 +111,6 @@ function create(record, internal) {
       unit: record.unit
     }
 
-    console.log("record", Object.keys(_records).length, _records[id])
-
     if (!internal) {
       sessionStorage.setItem(id, JSON.stringify(_records[id]))
     }
