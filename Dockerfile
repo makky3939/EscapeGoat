@@ -34,7 +34,7 @@ RUN git clone https://github.com/makky3939/EscapeGoat.git
 # build
 RUN cd EscapeGoat && npm install
 RUN cd EscapeGoat && npm run build
-RUN cp -r EscapeGoat/dst/* /usr/share/nginx/html/
+RUN cp -r EscapeGoat/escapegoat/* /usr/share/nginx/html/
 
 # port open
 EXPOSE 80

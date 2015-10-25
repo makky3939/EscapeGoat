@@ -12,5 +12,5 @@ gulp.task 'jade', ->
     .pipe gulpJade
       basedir: '../src/jade/'
     .pipe gulpPlumber.stop()
-    .pipe gulp.dest '../dst/'
+    .pipe gulp.dest '../escapegoat/'
     .pipe gulpConnect.reload()

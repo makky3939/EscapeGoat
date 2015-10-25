@@ -18,5 +18,5 @@ gulp.task 'js', ->
       plugin: 'licensify'
     .pipe gulpReact()
     .pipe gulpPlumber.stop()
-    .pipe gulp.dest '../dst/assets'
+    .pipe gulp.dest '../escapegoat/assets'
     .pipe gulpConnect.reload()

@@ -4,5 +4,5 @@ gulpConnect  = require 'gulp-connect'
 
 gulp.task 'sass', ->
   gulpRubySass '../src/index.sass', { style: 'expanded' }
-    .pipe gulp.dest '../dst/assets'
+    .pipe gulp.dest '../escapegoat/assets'
     .pipe gulpConnect.reload()
