@@ -11,7 +11,7 @@ const Footer = React.createClass({
           <p>
             <ol className="list-inline">
               <li>
-                <a href="escapegoat/">Top</a>
+                <a href="/escapegoat/">Top</a>
               </li>
               <li>
                 <a href="https://github.com/makky3939/EscapeGoat" target="_blank">Github Project</a>
