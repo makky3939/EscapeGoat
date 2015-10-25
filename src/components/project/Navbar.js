@@ -37,13 +37,13 @@ const Navbar = React.createClass({
             </li>
             <li className="nav-item">
               { !this.state.count ?
-              <Link className="nav-link disabled" to="/">卒業判定</Link>:
+              <Link className="nav-link disabled" to="">卒業判定</Link>:
               <Link className="nav-link" to="/dashboard" activeClassName="active">卒業判定</Link>
               }
             </li>
             <li className="nav-item">
               { !this.state.count ?
-                <Link className="nav-link disabled" to="/">履修科目一覧</Link>:
+                <Link className="nav-link disabled" to="">履修科目一覧</Link>:
                 <Link className="nav-link" to="/records" activeClassName="active">履修科目一覧</Link>
               }
             </li>

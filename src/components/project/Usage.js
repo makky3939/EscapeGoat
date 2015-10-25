@@ -101,8 +101,8 @@ module.exports = React.createClass({
               <h3>Bleat...</h3>
               <p>以下のボタンまたはナビゲーションバーから、集計結果を参照できます。</p>
               { !this.state.count ?
-                <Link className="btn btn-success-outline btn-lg btn-block disabled" to="" disabled>Dashboard</Link>:
-                <Link className="btn btn-success btn-lg btn-block" to="/dashboard">Dashboard</Link>
+                <Link className="btn btn-success-outline btn-lg btn-block disabled" to="" disabled>Please set your csv</Link>:
+                <Link className="btn btn-success btn-lg btn-block" to="/dashboard">Let&#39;s Go!</Link>
               }
             </section>
           </section>

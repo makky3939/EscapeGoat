@@ -55,6 +55,25 @@ const About = React.createClass({
         </section>
 
         <section>
+          <h2>他学類への対応について</h2>
+          <p>
+          現在は、知識情報・図書館学類向けの機能の拡充のみに対応しています。
+          要望があれば他学類向けの機能を実装することも可能ですが、学類独自の仕組みに関するご教授やサンプルデータの提供を求める場合があります。
+          </p>
+          <hr />
+        </section>
+
+        <section>
+          <h2>Web Storageについて</h2>
+          <p>
+          当サイトでは、成績データの一時保持の目的で
+          <a href="https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API" target="_blank">Web Storage</a>(SessionStorage)を使用しています。
+          成績データはブラウザのウインドウまたはタブを閉じるまでの間、ブラウザのウインドウまたはタブ内からアクセスすることが出来ます。
+          </p>
+          <hr />
+        </section>
+
+        <section>
           <h2>アクセスログの収集について</h2>
           <p>当サイトでは、Googleが提供する「Google Analytics」を使用しています。Google Analyticsは、サイトの利用状況を解析するため、「Cookie」を使用しています。収集される情報はGoogleのポリシーに基づいて管理されます。 Google Analyticsについて、およびGoogle社のプライバシーポリシーについては以下をご覧ください。</p>
           <div className="alert alert-info" role="alert">

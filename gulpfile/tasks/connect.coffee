@@ -3,7 +3,7 @@ gulpConnect        = require 'gulp-connect'
 
 gulp.task 'connect', ->
   gulpConnect.server
-    root: '../dst',
+    root: '../',
     port: 5000,
     livereload: true,
-    fallback: '../dst/index.html'
+    fallback: '../escapegoat/index.html'

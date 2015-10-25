@@ -112,7 +112,9 @@ function create(record, internal) {
     }
 
     if (!internal) {
-      sessionStorage.setItem(id, JSON.stringify(_records[id]))
+      if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.setItem(id, JSON.stringify(_records[id]))
+      }
     }
   }
 }
