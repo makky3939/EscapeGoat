@@ -9,18 +9,18 @@ import RecordAction from './../../actions/RecordAction.js'
 
 module.exports = React.createClass({
   componentDidMount: function() {
-
-    if (sessionStorage.length > 0) {
-      for (var i=0; i < sessionStorage.length; i++) {
-        if (!sessionStorage.key(i).match(/@@/)) {
-          RecordAction.create(
-            JSON.parse(sessionStorage.getItem(sessionStorage.key(i))),
-            true
-          )
+    if (typeof sessionStorage !== 'undefined') {
+      if (sessionStorage.length > 0) {
+        for (var i=0; i < sessionStorage.length; i++) {
+          if (!sessionStorage.key(i).match(/@@/)) {
+            RecordAction.create(
+              JSON.parse(sessionStorage.getItem(sessionStorage.key(i))),
+              true
+            )
+          }
         }
       }
     }
-
   },
 
   render() {
