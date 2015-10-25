@@ -1,5 +1,6 @@
 import React from 'react'
 import { Router, Route, Redirect } from 'react-router'
+import {createHistory, useBasename} from 'history'
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 // Page components
@@ -18,14 +19,18 @@ function onUpdateHandler() {
 
 onUpdateHandler()
 
+const baseName = useBasename(createHistory)({
+  basename: '/escapegoat'
+})
+
 React.render((
-  <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory()}>
-    <Route path="escapegoat/" component={Layout}>
+  <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory(), baseName}>
+    <Route path="" component={Layout}>
       <Route path="/usage" component={Usage} />
       <Route path="/records" component={Records} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/about" component={About} />
     </Route>
-    <Redirect from="/" to="escapegoat/usage" />
+    <Redirect from="/" to="/usage" />
   </Router>
 ), document.body)
