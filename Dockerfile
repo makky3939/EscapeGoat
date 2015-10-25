@@ -18,7 +18,7 @@ RUN yum install -y git python openssl-devel gcc gcc-c++
 # nginx
 RUN yum install -y nginx --enablerepo=nginx
 RUN rm /usr/share/nginx/html/*
-RUN sed -i "s/        index  index.html index.htm; /        index  index.html index.htm; try_files $uri $uri\/ \/index.html =404;/g" /etc/nginx/conf.d/default.conf
+RUN sed -i "s/        index  index.html index.htm;/        index  index.html index.htm; try_files \$uri \$uri\/ \/index.html =404;/g" /etc/nginx/conf.d/default.conf
 
 # node
 RUN yum install -y nodejs npm
