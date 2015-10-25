@@ -20,7 +20,7 @@ const Footer = React.createClass({
                 <a href="http://www.makky.io" target="_blank">makky.io</a>
               </li>
               <li>
-                <a href="https://twitter.com/share?url=http://app.makky.io/escapegoat&hashtags=klis&text=klis向け卒業判定アプリ EscapeGoat" target="_blank">Share on Twitter</a>
+                <a href="https://twitter.com/share?url=http://app.makky.io/escapegoat/&hashtags=klis&text=klis向け卒業判定アプリ-EscapeGoat" target="_blank">Share on Twitter</a>
               </li>
             </ol>
             <span>&copy; makky.io All Rights Reserved.<br /></span>
