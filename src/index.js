@@ -12,6 +12,10 @@ import Records from './components/project/Records.js'
 import Dashboard from './components/project/Dashboard.js'
 import About from './components/project/About.js'
 
+if (window.msCrypto) {
+  window.crypto = window.msCrypto
+}
+
 function onUpdateHandler() {
   window.scrollTo(0, 0)
   ga('send', 'pageview', "/escapegoat" + location.pathname)
