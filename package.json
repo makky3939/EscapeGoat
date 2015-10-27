@@ -37,7 +37,6 @@
     "gulp-jade": "^1.1.0",
     "gulp-pleeease": "^2.0.1",
     "gulp-plumber": "^1.0.1",
-    "gulp-react": "^3.0.1",
     "gulp-ruby-sass": "^2.0.4",
     "licensify": "^2.0.1",
     "require-dir": "^0.3.0",
