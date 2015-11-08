@@ -2,11 +2,14 @@ module.exports = class RecordUtility {
   constructor(items, type) {
     this.items = {}
 
-    for (var index of Object.keys(items)) {
+    for (let i=0; i < Object.keys(items).length; i++) {
+      let index = Object.keys(items)[i]
       if (items[index].type === type) {
         this.items[index] = items[index]
       }
     }
+
+    return
   }
 
   division(index, division) {
@@ -44,8 +47,10 @@ module.exports = class RecordUtility {
     let optional = []
     let free = []
 
-    for (var index of this.ids) {
+    for (var i = 0; i < this.ids.length; i++) {
+      let index = this.ids[i]
       let record = this.find(index)
+
       switch(record.division) {
         case 'required':
           required.push(record)

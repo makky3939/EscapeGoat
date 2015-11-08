@@ -12,6 +12,7 @@ gulp.task 'js', ->
         console.log err
         this.emit 'end'
     .pipe gulpBrowserify
+      insertGlobals: false
       transform: ['babelify']
       plugin: 'licensify'
     .pipe gulpPlumber.stop()
