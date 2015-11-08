@@ -3,6 +3,7 @@ babelify       = require 'babelify'
 gulpBrowserify = require 'gulp-browserify'
 gulpPlumber    = require 'gulp-plumber'
 gulpConnect    = require 'gulp-connect'
+gulpUglify     = require 'gulp-uglify'
 licensify      = require 'licensify'
 
 gulp.task 'js', ->
@@ -15,6 +16,7 @@ gulp.task 'js', ->
       insertGlobals: false
       transform: ['babelify']
       plugin: 'licensify'
+    .pipe gulpUglify()
     .pipe gulpPlumber.stop()
     .pipe gulp.dest '../escapegoat/assets'
     .pipe gulpConnect.reload()
