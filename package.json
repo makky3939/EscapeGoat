@@ -1,6 +1,6 @@
 {
   "name": "escapegoat",
-  "version": "1.0.20",
+  "version": "1.0.24",
   "description": "escapegoat",
   "main": "index.js",
   "scripts": {
@@ -35,9 +35,10 @@
     "gulp-browserify": "^0.5.1",
     "gulp-connect": "^2.2.0",
     "gulp-jade": "^1.1.0",
+    "gulp-pleeease": "^2.0.1",
     "gulp-plumber": "^1.0.1",
-    "gulp-react": "^3.0.1",
     "gulp-ruby-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.2",
     "licensify": "^2.0.1",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",

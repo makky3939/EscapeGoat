@@ -28,7 +28,7 @@ module.exports = React.createClass({
         let i = item.split(",")
         if (i[1] != "") {
           RecordAction.create({
-            type: i[0].split(":")[0],
+            type: i[0].split(":")[0].replace(/[0-9]/g, ""),
             year: i[1],
             term: i[2],
             subjectCode: i[3],

@@ -7,89 +7,13 @@ import AppDispatcher from './../dispatcher/AppDispatcher.js'
 // Constants
 import RecordConstants from './../constants/RecordConstants.js'
 
+// Utils
+import RecordUtility from './../utils/RecordUtility.js'
+
 const CHANGE_EVENT = 'change'
 const REQUIRED_FLAG = 'required'
 const OPTIONAL_FLAG = 'optional'
 let _records = {}
-
-
-class RecordUtility {
-  constructor(items, type) {
-    this.items = {}
-
-    for (var index of Object.keys(items)) {
-      if (items[index].type === type) {
-        this.items[index] = items[index]
-      }
-    }
-  }
-
-  division(index, division) {
-    if (this.items[index].division === division) {
-      return true
-    } else if (this.items[index].division === undefined) {
-      this.items[index].division = division
-      return true
-    } else {
-      return false
-    }
-  }
-
-  find(id) {
-    return this.items[id]
-  }
-
-  get ids() {
-    return Object.keys(this.items)
-  }
-
-  credit(records) {
-    let sum = 0.0
-    const exams = ["A+", "A", "B", "C", "P", ""]
-    records.forEach(function(element, index) {
-      if (exams.indexOf(element.score) >= 0 ) {
-        sum = sum + Number(element.unit)
-      }
-    })
-    return sum
-  }
-
-  finalyze() {
-    let required = []
-    let optional = []
-    let free = []
-
-    for (var index of this.ids) {
-      let record = this.find(index)
-      switch(record.division) {
-        case 'required':
-          required.push(record)
-          break
-        case 'optional':
-          optional.push(record)
-          break
-        default:
-          free.push(record)
-          break
-      }
-    }
-
-    return {
-      required: {
-        records: required,
-        credit: this.credit(required)
-      },
-      optional: {
-        records: optional,
-        credit: this.credit(optional)
-      },
-      free: {
-        records: free,
-        credit: this.credit(free)
-      }
-    }
-  }
-}
 
 /**
  * Create a Record item.
@@ -152,7 +76,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
       d: 0.0
     }
 
-    for (var index of Object.keys(_records)) {
+    for (var i = 0; i < Object.keys(_records).length; i++) {
+      let index = Object.keys(_records)[i]
       let record = _records[index]
       switch (exams.indexOf(record.score)) {
         case 0:
@@ -194,7 +119,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     let generalAll = 0
 
     // required
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
@@ -209,7 +135,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     // optional
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (record.find(index).subjectCode.match(/^3[1,2,3,4,5,6,7]/)) {
         record.division(index, OPTIONAL_FLAG)
       }
@@ -235,14 +162,16 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     ]
 
     // required
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
     }
 
     // optional
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (record.find(index).subjectCode.match(/GE2|GA/) && mySize < 32 ) {
         record.division(index, OPTIONAL_FLAG)
         mySize += record.credit([record.find(index)])
@@ -272,7 +201,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     let otherMajorSize = 0
 
     // major
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (majorSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         switch (majorSubjectCodes.indexOf(record.find(index).subjectCode)) {
           case 0:
@@ -288,14 +218,16 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     // required
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
     }
 
     // optional
-    for (var index of record.ids) {
+    for (var i = 0; i < record.ids.length; i++) {
+      let index = record.ids[i]
       if (record.find(index).subjectCode.match(myMajorPattern) && myMajorSize < 20 ) {
         if (record.division(index, OPTIONAL_FLAG)) {
           myMajorSize += record.credit([record.find(index)])

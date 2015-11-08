@@ -50,6 +50,8 @@ html(lang='jp')
     link(rel='stylesheet' href='/escapegoat/assets/index.css')
 
   body
+  script.
+    if (!!window.msCrypto) { window.crypto = window.msCrypto; }
 
   script.
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
