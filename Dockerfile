@@ -28,7 +28,7 @@ RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 5.0 && nvm use 5.0 && nvm alias
 
 # RUN source ~/.nvm/nvm.sh && nvm install 5.0 && nvm use 5.0
 # RUN yum install -y npm
-RUN npm install -g npm@2.14.7
+# RUN npm install -g npm@2.14.7
 
 # ruby
 RUN yum install -y ruby
