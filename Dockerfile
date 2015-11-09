@@ -21,7 +21,9 @@ RUN rm /usr/share/nginx/html/*
 RUN sed -i "s/        index  index.html index.htm;/        index  index.html index.htm; try_files \$uri \$uri\/ \/index.html =404;/g" /etc/nginx/conf.d/default.conf
 
 # node
-RUN yum install -y nodejs npm
+RUN yum install -y npm
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+RUN nvm install 5.0
 RUN npm install -g npm@2.14.7
 
 # ruby
