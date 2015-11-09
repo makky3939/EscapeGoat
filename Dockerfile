@@ -24,9 +24,9 @@ RUN sed -i "s/        index  index.html index.htm;/        index  index.html ind
 RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 RUN echo ". ~/.nvm/nvm.sh" >> ~/.bash_profile
 
-RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 5.0 && nvm use 5.0 && nvm alias default 5.0 && ln -s ~/.nvm/5.0/bin/node /usr/bin/node && ln -s ~/.nvm/5.0/bin/npm /usr/bin/npm'
+RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1 && nvm alias default 4.2.1 && ln -s ~/.nvm/4.2.1/bin/node /usr/bin/node && ln -s ~/.nvm/4.2.1/bin/npm /usr/bin/npm'
 
-# RUN source ~/.nvm/nvm.sh && nvm install 5.0 && nvm use 5.0
+# RUN source ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1
 # RUN yum install -y npm
 # RUN npm install -g npm@2.14.7
 
