@@ -23,6 +23,7 @@ RUN sed -i "s/        index  index.html index.htm;/        index  index.html ind
 # node
 RUN yum install -y npm
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+RUN source ~/.nvm
 RUN nvm install 5.0
 RUN npm install -g npm@2.14.7
 
