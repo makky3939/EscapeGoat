@@ -21,9 +21,9 @@ RUN rm /usr/share/nginx/html/*
 RUN sed -i "s/        index  index.html index.htm;/        index  index.html index.htm; try_files \$uri \$uri\/ \/index.html =404;/g" /etc/nginx/conf.d/default.conf
 
 # node
-RUN yum install -y npm
 RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 RUN source ~/.nvm/nvm.sh && nvm install 5.0
+RUN yum install -y npm
 RUN npm install -g npm@2.14.7
 
 # ruby
