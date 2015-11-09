@@ -38,8 +38,8 @@ RUN gem install sass
 RUN git clone https://github.com/makky3939/EscapeGoat.git
 
 # build
-RUN cd EscapeGoat && npm install
-RUN cd EscapeGoat && npm run build
+RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm install'
+RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm run build'
 RUN cp -r EscapeGoat/escapegoat/* /usr/share/nginx/html/
 
 # port open
