@@ -23,7 +23,7 @@ RUN sed -i "s/        index  index.html index.htm;/        index  index.html ind
 # node
 RUN yum install -y npm
 RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-RUN source ~/.nvm/nvm.sh
+RUN source . ~/.nvm/nvm.sh
 RUN nvm install 5.0
 RUN npm install -g npm@2.14.7
 
