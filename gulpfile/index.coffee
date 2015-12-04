@@ -18,4 +18,4 @@ gulp.task 'server', ->
   runSequence 'build', 'connect', 'watch'
 
 gulp.task 'test', ->
-  runSequence 'build'
+  runSequence 'build', 'eslint'
