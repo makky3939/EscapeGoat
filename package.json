@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp --gulpfile gulpfile/index.coffee build",
     "start": "gulp --gulpfile gulpfile/index.coffee server",
-    "test": "gulp --gulpfile gulpfile/index.coffee test",
+    "test": "gulp --gulpfile gulpfile/index.coffee test"
   },
   "repository": {
     "type": "git",
