@@ -4,6 +4,7 @@
   "description": "escapegoat",
   "main": "index.js",
   "scripts": {
+    "postinstall": "bundle install",
     "build": "gulp --gulpfile gulpfile/index.coffee build",
     "start": "gulp --gulpfile gulpfile/index.coffee server",
     "test": "gulp --gulpfile gulpfile/index.coffee test"
