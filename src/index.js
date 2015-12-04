@@ -11,6 +11,7 @@ import Usage from './components/project/Usage.js'
 import Records from './components/project/Records.js'
 import Dashboard from './components/project/Dashboard.js'
 import About from './components/project/About.js'
+import Librarian from './components/project/Librarian.js'
 
 function onUpdateHandler() {
   window.scrollTo(0, 0)
@@ -30,6 +31,7 @@ React.render((
       <Route path="/records" component={Records} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/about" component={About} />
+      <Route path="/librarian" component={Librarian} />
     </Route>
     <Redirect from="/" to="/usage" />
   </Router>
