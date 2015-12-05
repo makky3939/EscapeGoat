@@ -1,4 +1,4 @@
-var React = require('react')
+var React = require('react');
 
 var Container = React.createClass({
   propTypes: {
@@ -12,8 +12,8 @@ var Container = React.createClass({
           {this.props.children}
         </div>
       </div>
-    )
+    );
   }
-})
+});
 
-module.exports = Container
+module.exports = Container;

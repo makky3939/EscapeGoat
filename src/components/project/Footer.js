@@ -1,4 +1,4 @@
-var React = require('react')
+var React = require('react');
 
 var Footer = React.createClass({
   render: function() {
@@ -28,8 +28,8 @@ var Footer = React.createClass({
           </p>
         </div>
       </footer>
-    )
+    );
   }
-})
+});
 
-module.exports = Footer
+module.exports = Footer;

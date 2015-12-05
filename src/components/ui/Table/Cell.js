@@ -1,4 +1,4 @@
-var React = require('react')
+var React = require('react');
 
 var TableCell = React.createClass({
   propTypes: {
@@ -9,14 +9,14 @@ var TableCell = React.createClass({
   render: function() {
     switch(this.props.type) {
       case "head":
-        return <th>{ this.props.item }</th>
-        break
+        return <th>{ this.props.item }</th>;
+        break;
 
       case "body":
-        return <td>{ this.props.item }</td>
-        break
+        return <td>{ this.props.item }</td>;
+        break;
     }
   }
-})
+});
 
-module.exports = TableCell
+module.exports = TableCell;

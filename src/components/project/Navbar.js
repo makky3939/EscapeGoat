@@ -1,27 +1,27 @@
-var React = require('react')
-var reactRouter = require('react-router')
-var Link = reactRouter.Link
+var React = require('react');
+var reactRouter = require('react-router');
+var Link = reactRouter.Link;
 
 // Store
-var RecordStore = require('../../stores/RecordStore.js')
+var RecordStore = require('../../stores/RecordStore.js');
 
 function getRecordState() {
   return {
     count: RecordStore.count()
-  }
+  };
 }
 
 var Navbar = React.createClass({
   getInitialState: function() {
-    return getRecordState()
+    return getRecordState();
   },
 
   componentDidMount: function() {
-    RecordStore.addChangeListener(this._onChange)
+    RecordStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    RecordStore.removeChangeListener(this._onChange)
+    RecordStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
@@ -53,12 +53,12 @@ var Navbar = React.createClass({
           </ul>
         </div>
       </nav>
-    )
+    );
   },
 
   _onChange: function() {
-    this.setState(getRecordState())
+    this.setState(getRecordState());
   }
-})
+});
 
-module.exports = Navbar
+module.exports = Navbar;

@@ -1,7 +1,7 @@
-var React = require('react')
+var React = require('react');
 
 // Component
-var TableRow = require('./Row.js')
+var TableRow = require('./Row.js');
 
 var Table = React.createClass({
   propTypes: {
@@ -19,14 +19,14 @@ var Table = React.createClass({
           <tbody>
             {
               this.props.body.map(function(items, index) {
-                return <TableRow key={index} type="body" list={items} />
+                return <TableRow key={index} type="body" list={items} />;
               })
             }
           </tbody>
         </table>
       </div>
-    )
+    );
   }
-})
+});
 
-module.exports = Table
+module.exports = Table;

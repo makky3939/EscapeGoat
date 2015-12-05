@@ -1,5 +1,5 @@
-var AppDispatcher = require('./../dispatcher/AppDispatcher')
-var RecordConstants = require('./../constants/RecordConstants')
+var AppDispatcher = require('./../dispatcher/AppDispatcher');
+var RecordConstants = require('./../constants/RecordConstants');
 
 var RecordActions = {
   create: function(record, internal) {
@@ -7,13 +7,13 @@ var RecordActions = {
       actionType: RecordConstants.RECORD_CREATE,
       record: record,
       internal: internal
-    })
+    });
   },
   destroyAll: function() {
     AppDispatcher.dispatch({
       actionType: RecordConstants.RECORD_DESTROY_ALL
-    })
+    });
   }
 };
 
-module.exports = RecordActions
+module.exports = RecordActions;

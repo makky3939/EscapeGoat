@@ -1,7 +1,7 @@
-var React = require('react')
+var React = require('react');
 
 // UI
-var Container = require('./../ui/Container.js')
+var Container = require('./../ui/Container.js');
 
 var About = React.createClass({
   render: function() {
@@ -81,8 +81,8 @@ var About = React.createClass({
           </div>
         </section>
       </Container>
-    )
+    );
   }
-})
+});
 
-module.exports = About
+module.exports = About;

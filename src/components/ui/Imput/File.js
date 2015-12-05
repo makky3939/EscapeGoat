@@ -1,31 +1,31 @@
-var React = require('react')
+var React = require('react');
 
 // Action
-var RecordAction = require('./../../../actions/RecordAction.js')
+var RecordAction = require('./../../../actions/RecordAction.js');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
       data_uri: null,
-    }
+    };
   },
 
   handleSubmit: function(e) {
-    e.preventDefault()
+    e.preventDefault();
   },
 
   handleFile: function(e) {
-    var self = this
-    var reader = new FileReader()
-    var file = e.target.files[0]
+    var self = this;
+    var reader = new FileReader();
+    var file = e.target.files[0];
 
     reader.onload = function(upload) {
-      RecordAction.destroyAll()
+      RecordAction.destroyAll();
 
-      var csv = upload.target.result.replace(/"/g, "").replace(/, /g, "").split("\n")[1].split("\r")
+      var csv = upload.target.result.replace(/"/g, "").replace(/, /g, "").split("\n")[1].split("\r");
 
       csv.map(function(item) {
-        var i = item.split(",")
+        var i = item.split(",");
         if (i[1] != "") {
           RecordAction.create({
             type: i[0].split(":")[0].replace(/[0-9]/g, ""),
@@ -36,13 +36,13 @@ module.exports = React.createClass({
             teacher: i[5],
             score: i[6],
             unit: i[7]
-          })
+          });
         }
-      })
+      });
 
-    }
+    };
 
-    reader.readAsText(file)
+    reader.readAsText(file);
   },
 
   render: function() {
@@ -50,6 +50,6 @@ module.exports = React.createClass({
       <form onSubmit={this.handleSubmit} encType="multipart/form-data">
         <input type="file" className="form-control" onChange={ this.handleFile } />
       </form>
-    )
+    );
   }
-})
+});

@@ -9,5 +9,8 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "rules": {
+    "semi": 2
+  }
 }

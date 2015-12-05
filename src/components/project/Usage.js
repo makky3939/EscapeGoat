@@ -1,20 +1,19 @@
-var React = require('react')
+var React = require('react');
 
-var reactRouter = require('react-router')
-var Link = reactRouter.Link
+var reactRouter = require('react-router');
+var Link = reactRouter.Link;
 
 // UI
-var ImputFile = require('./../ui/Imput/File.js')
-var Container = require('./../ui/Container.js')
+var ImputFile = require('./../ui/Imput/File.js');
+var Container = require('./../ui/Container.js');
 
 // Store
-var RecordStore = require('../../stores/RecordStore.js')
-
+var RecordStore = require('../../stores/RecordStore.js');
 
 function getRecordState() {
   return {
     count: RecordStore.count()
-  }
+  };
 }
 
 module.exports = React.createClass({
@@ -110,9 +109,9 @@ module.exports = React.createClass({
           </section>
         </Container>
       </div>
-    )
+    );
   },
   _onChange: function() {
-    this.setState(getRecordState())
+    this.setState(getRecordState());
   }
-})
+});

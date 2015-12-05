@@ -1,11 +1,11 @@
-var React = require('react')
+var React = require('react');
 
 // Component
-var Navbar = require('../project/Navbar.js')
-var Footer = require('../project/Footer.js')
+var Navbar = require('../project/Navbar.js');
+var Footer = require('../project/Footer.js');
 
 // Action
-var RecordAction = require('./../../actions/RecordAction.js')
+var RecordAction = require('./../../actions/RecordAction.js');
 
 module.exports = React.createClass({
   componentDidMount: function() {
@@ -16,7 +16,7 @@ module.exports = React.createClass({
             RecordAction.create(
               JSON.parse(sessionStorage.getItem(sessionStorage.key(i))),
               true
-            )
+            );
           }
         }
       }
@@ -32,6 +32,6 @@ module.exports = React.createClass({
         </div>
         <Footer />
       </div>
-    )
+    );
   }
-})
+});
