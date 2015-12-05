@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react');
 
-// Component
-import Navbar from '../project/Navbar.js'
-import Footer from '../project/Footer.js'
+// Ui
+var Navbar = require('../ui/Navbar.js');
+var Footer = require('../ui/Footer.js');
 
 // Action
-import RecordAction from './../../actions/RecordAction.js'
+var RecordAction = require('./../../actions/RecordAction.js');
 
 module.exports = React.createClass({
   componentDidMount: function() {
@@ -16,14 +16,14 @@ module.exports = React.createClass({
             RecordAction.create(
               JSON.parse(sessionStorage.getItem(sessionStorage.key(i))),
               true
-            )
+            );
           }
         }
       }
     }
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <Navbar />
@@ -32,6 +32,6 @@ module.exports = React.createClass({
         </div>
         <Footer />
       </div>
-    )
+    );
   }
-})
+});

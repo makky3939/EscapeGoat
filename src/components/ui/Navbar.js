@@ -1,30 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router'
+var React = require('react');
+var reactRouter = require('react-router');
+var Link = reactRouter.Link;
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
-
+var RecordStore = require('../../stores/RecordStore.js');
 
 function getRecordState() {
   return {
     count: RecordStore.count()
-  }
+  };
 }
 
-const Navbar = React.createClass({
+var Navbar = React.createClass({
   getInitialState: function() {
-    return getRecordState()
+    return getRecordState();
   },
 
   componentDidMount: function() {
-    RecordStore.addChangeListener(this._onChange)
+    RecordStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    RecordStore.removeChangeListener(this._onChange)
+    RecordStore.removeChangeListener(this._onChange);
   },
 
-  render() {
+  render: function() {
     return (
       <nav className="navbar navbar-dark bg-inverse">
         <div className="container">
@@ -33,12 +33,15 @@ const Navbar = React.createClass({
           </Link>
           <ul className="nav navbar-nav pull-right">
             <li className="nav-item">
-              <Link className="nav-link" to="/usage" activeClassName="active">使い方</Link>
-            </li>
-            <li className="nav-item">
               { !this.state.count ?
               <Link className="nav-link disabled" to="">卒業判定</Link>:
               <Link className="nav-link" to="/dashboard" activeClassName="active">卒業判定</Link>
+              }
+            </li>
+            <li className="nav-item">
+              { !this.state.count ?
+              <Link className="nav-link disabled" to="">司書資格</Link>:
+              <Link className="nav-link" to="/librarian" activeClassName="active">司書資格</Link>
               }
             </li>
             <li className="nav-item">
@@ -53,12 +56,12 @@ const Navbar = React.createClass({
           </ul>
         </div>
       </nav>
-    )
+    );
   },
 
   _onChange: function() {
-    this.setState(getRecordState())
+    this.setState(getRecordState());
   }
-})
+});
 
-module.exports = Navbar
+module.exports = Navbar;

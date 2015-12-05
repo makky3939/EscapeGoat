@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react');
 
 // UI
-import Table from '../ui/Table/Index.js'
-import Container from './../ui/Container.js'
+var Table = require('../ui/Table/Index.js');
+var Container = require('./../ui/Container.js');
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
+var RecordStore = require('../../stores/RecordStore.js');
 
 
 function getRecordState() {
@@ -14,50 +14,54 @@ function getRecordState() {
     specialBasic: RecordStore.specialBasic(),
     special: RecordStore.special(),
     weightedAverage: RecordStore.weightedAverage()
-  }
+  };
 }
 
 function adjustRecord(records) {
   return (
     Object.keys(records).map(function(index) {
-      let record = records[index]
+      var record = records[index];
       return [
         record.subjectCode,
         record.subjectName,
         record.score,
         record.unit
-      ]
+      ];
     })
-  )
+  );
 }
 
-const Dashboard = React.createClass({
+var Dashboard = React.createClass({
   getInitialState: function() {
-    return getRecordState()
+    return getRecordState();
   },
 
   componentDidMount: function() {
-    RecordStore.addChangeListener(this._onChange)
+    RecordStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
-    RecordStore.removeChangeListener(this._onChange)
+    RecordStore.removeChangeListener(this._onChange);
   },
 
-  render() {
-    const tableHeader = ["科目番号", "科目名", "成績", "単位"]
+  render: function() {
+    var tableHeader = ["科目番号", "科目名", "成績", "単位"];
 
-    const basic = this.state.basic
-    const specialBasic = this.state.specialBasic
-    const special = this.state.special
-    const weightedAverage = this.state.weightedAverage
+    var basic = this.state.basic;
+    var specialBasic = this.state.specialBasic;
+    var special = this.state.special;
+    var weightedAverage = this.state.weightedAverage;
 
-    const required = specialBasic.required.credit + special.required.credit + basic.required.credit + basic.optional.credit
-    const optional = specialBasic.optional.credit + special.optional.credit
-    const free = specialBasic.free.credit + special.free.credit + basic.free.credit
+    var required = specialBasic.required.credit + special.required.credit + basic.required.credit + basic.optional.credit;
+    var optional = specialBasic.optional.credit + special.optional.credit;
+    var free = specialBasic.free.credit + special.free.credit + basic.free.credit;
     return (
       <Container style="col-sm-12">
         <h1>卒業判定</h1>
+        <div className="alert alert-info" role="alert">
+          現在、klis13(三年次編入を除く)向けの判定処理を先行実装しています。<br/>
+          klis13以外の判定についても実装予定です。（上手く処理できないケースを教えていただけると早く直ります）
+        </div>
         <hr />
         <section>
           <section>
@@ -183,12 +187,12 @@ const Dashboard = React.createClass({
           </section>
         </section>
       </Container>
-    )
+    );
   },
 
   _onChange: function() {
-    this.setState(getRecordState())
+    this.setState(getRecordState());
   }
-})
+});
 
-module.exports = Dashboard
+module.exports = Dashboard;

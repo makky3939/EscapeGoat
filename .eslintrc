@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node" : true,
+    "browser" : true
+  },
+  "ecmaFeatures" : {
+    "jsx": true,
+    "objectLiteralShorthandMethods" : true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "semi": 2
+  }
+}

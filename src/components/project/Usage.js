@@ -1,18 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router'
+var React = require('react');
+
+var reactRouter = require('react-router');
+var Link = reactRouter.Link;
 
 // UI
-import ImputFile from './../ui/Imput/File.js'
-import Container from './../ui/Container.js'
+var ImputFile = require('./../ui/Imput/File.js');
+var Container = require('./../ui/Container.js');
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
-
+var RecordStore = require('../../stores/RecordStore.js');
 
 function getRecordState() {
   return {
     count: RecordStore.count()
-  }
+  };
 }
 
 module.exports = React.createClass({
@@ -28,7 +29,7 @@ module.exports = React.createClass({
     RecordStore.removeChangeListener(this._onChange);
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <div className="jumbotron text-xs-center">
@@ -47,7 +48,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-4">
                   <h3>司書資格判定</h3>
-                  <p>司書資格判定の機能を気が向いたら実装します。</p>
+                  <p>司書資格の習得に必要な科目を履修しているかを確認することが出来ます。</p>
                 </div>
                 <div className="col-sm-4">
                   <h3>超セキュア</h3>
@@ -62,7 +63,7 @@ module.exports = React.createClass({
               <h3>TwinsからCSVファイルをダウンロード</h3>
               <ol>
                 <li>
-                  <a href="https://twins.tsukuba.ac.jp/campusweb/" target="_blank">Twins</a>にアクセスし、<code>履修 -> 科目区分参照・変更</code> を選択します。
+                  <a href="https://twins.tsukuba.ac.jp/campusweb/" target="_blank">Twins</a>にアクセスし、<code>履修から科目区分参照・変更</code> を選択します。
                 </li>
                 <li>
                   クリック後に表示されたページの下部にある<code>ダウンロードボタン</code>を選択肢し、ダウンロードしてください。
@@ -108,9 +109,9 @@ module.exports = React.createClass({
           </section>
         </Container>
       </div>
-    )
+    );
   },
   _onChange: function() {
-    this.setState(getRecordState())
+    this.setState(getRecordState());
   }
-})
+});

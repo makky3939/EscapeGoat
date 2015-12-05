@@ -1,32 +1,35 @@
-import React from 'react'
+var React = require('react');
 
 // Component
-import TableRow from './Row.js'
+var TableRow = require('./Row.js');
 
-const Table = React.createClass({
+var Table = React.createClass({
   propTypes: {
-    header: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    header: React.PropTypes.arrayOf(React.PropTypes.string),
     body: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.string)).isRequired
   },
 
-  render() {
+  render: function() {
     return (
       <div className="table-responsive">
         <table className="table">
           <thead className="thead-default">
-            <TableRow type="head" list={ this.props.header } />
+            { this.props.header ?
+              <TableRow type="head" list={ this.props.header } />:
+              null
+            }
           </thead>
           <tbody>
             {
               this.props.body.map(function(items, index) {
-                return <TableRow key={index} type="body" list={items} />
+                return <TableRow key={index} type="body" list={items} />;
               })
             }
           </tbody>
         </table>
       </div>
-    )
+    );
   }
-})
+});
 
-module.exports = Table
+module.exports = Table;

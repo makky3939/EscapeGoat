@@ -1,11 +1,13 @@
-import React from 'react'
+var React = require('react');
 
-const Footer = React.createClass({
-  render() {
+var package = require('../../../package.json');
+
+var Footer = React.createClass({
+  render: function() {
     return (
       <footer className="Footer">
         <div className="text-xs-center">
-          <a onClick={() => window.scrollTo(0, 0)}>
+          <a onClick={function() {window.scrollTo(0, 0);}}>
             <i className="fa fa-angle-double-up fa-fw fa-lg" />
           </a>
           <p>
@@ -24,12 +26,12 @@ const Footer = React.createClass({
               </li>
             </ol>
             <span>&copy; makky.io All Rights Reserved.<br /></span>
-            <span>EscapeGoat v1.0.25</span>
+            <span>EscapeGoat v{package.version}</span>
           </p>
         </div>
       </footer>
-    )
+    );
   }
-})
+});
 
-module.exports = Footer
+module.exports = Footer;

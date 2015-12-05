@@ -1,5 +1,5 @@
 gulp           = require 'gulp'
-babelify       = require 'babelify'
+reactify       = require 'reactify'
 gulpBrowserify = require 'gulp-browserify'
 gulpPlumber    = require 'gulp-plumber'
 gulpConnect    = require 'gulp-connect'
@@ -13,8 +13,8 @@ gulp.task 'js', ->
         console.log err
         this.emit 'end'
     .pipe gulpBrowserify
-      insertGlobals: false
-      transform: ['babelify']
+      insertGlobals: true
+      transform: [reactify]
       plugin: 'licensify'
     .pipe gulpUglify()
     .pipe gulpPlumber.stop()
