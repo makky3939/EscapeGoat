@@ -58,6 +58,10 @@ var Dashboard = React.createClass({
     return (
       <Container style="col-sm-12">
         <h1>卒業判定</h1>
+        <div className="alert alert-info" role="alert">
+          現在、klis13(三年次編入を除く)向けの判定処理を先行実装しています。<br/>
+          klis13以外の判定についても実装予定です。（上手く処理できないケースを教えていただけると早く直ります）
+        </div>
         <hr />
         <section>
           <section>

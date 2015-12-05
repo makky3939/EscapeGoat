@@ -260,6 +260,9 @@ var RecordStore = assign({}, EventEmitter.prototype, {
 
     switch(actionType) {
       case RecordConstants.RECORD_CREATE:
+        if(record.type === 'F') {
+          record.type = 'C';
+        }
         create(record, internal);
         RecordStore.emitChange();
         break;

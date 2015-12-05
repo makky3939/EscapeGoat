@@ -47,6 +47,10 @@ var Librarian = React.createClass({
     return (
       <Container style="col-sm-12">
         <h1>司書資格判定</h1>
+        <div className="alert alert-info" role="alert">
+          大学において修得すべき図書館に関する科目［新課程］（平成 24 年度以降入学・編入学者用）にのみ対応しています。<br/>
+          （旧課程の実装については対応中です。）
+        </div>
         <hr />
         <section>
           <h2>甲群</h2>
