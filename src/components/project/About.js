@@ -79,6 +79,12 @@ var About = React.createClass({
           <div className="alert alert-info" role="alert">
             <strong>Tips</strong> 成績に関する情報は含まれません。
           </div>
+          <hr />
+        </section>
+
+        <section>
+          <h2>参考文献</h2>
+          <p>筑波大学 情報学群 知識情報・図書館学類. 平成27年度 知識情報・図書館学類 開設授業科目シラバス. 筑波大学, 2015, 236p.</p>
         </section>
       </Container>
     );
