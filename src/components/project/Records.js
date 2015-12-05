@@ -7,7 +7,6 @@ var Container = require('./../ui/Container.js');
 // Store
 var RecordStore = require('../../stores/RecordStore.js');
 
-
 /**
  * Retrieve the current Record data from the RecordStore
  */

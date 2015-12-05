@@ -5,7 +5,7 @@ var TableRow = require('./Row.js');
 
 var Table = React.createClass({
   propTypes: {
-    header: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    header: React.PropTypes.arrayOf(React.PropTypes.string),
     body: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.string)).isRequired
   },
 
@@ -14,7 +14,10 @@ var Table = React.createClass({
       <div className="table-responsive">
         <table className="table">
           <thead className="thead-default">
-            <TableRow type="head" list={ this.props.header } />
+            { this.props.header ?
+              <TableRow type="head" list={ this.props.header } />:
+              null
+            }
           </thead>
           <tbody>
             {

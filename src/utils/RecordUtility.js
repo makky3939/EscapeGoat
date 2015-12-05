@@ -2,7 +2,7 @@ var RecordUtility = function(items, type) {
   this.items = {};
   for (var i=0; i < Object.keys(items).length; i++) {
     var index = Object.keys(items)[i];
-    if (items[index].type === type) {
+    if (items[index].type == type) {
       this.items[index] = items[index];
     }
   }
@@ -43,8 +43,8 @@ RecordUtility.prototype.finalyze = function() {
   var optional = [];
   var free = [];
 
-  for (var i = 0; i < this.ids.length; i++) {
-    var index = this.ids[i];
+  for (var i = 0; i < this.ids().length; i++) {
+    var index = this.ids()[i];
     var record = this.find(index);
 
     switch(record.division) {

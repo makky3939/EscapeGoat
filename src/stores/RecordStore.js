@@ -113,11 +113,12 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     ];
 
     var record = new RecordUtility(_records, 'C');
+
     var generalAll = 0;
 
     // required
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG);
       }
@@ -132,8 +133,8 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     // optional
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (record.find(index).subjectCode.match(/^3[1,2,3,4,5,6,7]/)) {
         record.division(index, OPTIONAL_FLAG);
       }
@@ -159,16 +160,16 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     ];
 
     // required
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG);
       }
     }
 
     // optional
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (record.find(index).subjectCode.match(/GE2|GA/) && mySize < 32 ) {
         record.division(index, OPTIONAL_FLAG);
         mySize += record.credit([record.find(index)]);
@@ -198,8 +199,8 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     var otherMajorSize = 0;
 
     // major
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (majorSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         switch (majorSubjectCodes.indexOf(record.find(index).subjectCode)) {
           case 0:
@@ -215,16 +216,16 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     // required
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG);
       }
     }
 
     // optional
-    for (var i = 0; i < record.ids.length; i++) {
-      var index = record.ids[i];
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (record.find(index).subjectCode.match(myMajorPattern) && myMajorSize < 20 ) {
         if (record.division(index, OPTIONAL_FLAG)) {
           myMajorSize += record.credit([record.find(index)]);
