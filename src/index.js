@@ -40,4 +40,4 @@ React.render((
     </Route>
     <Redirect from="/" to="/usage" />
   </Router>
-), document.body);
+), document.getElementById('react-root'));
