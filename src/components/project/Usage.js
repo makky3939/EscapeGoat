@@ -48,7 +48,7 @@ module.exports = React.createClass({
                 </div>
                 <div className="col-sm-4">
                   <h3>司書資格判定</h3>
-                  <p>司書資格判定の機能を気が向いたら実装します。</p>
+                  <p>司書資格の習得に必要な科目を履修しているかを確認することが出来ます。</p>
                 </div>
                 <div className="col-sm-4">
                   <h3>超セキュア</h3>

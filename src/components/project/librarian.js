@@ -30,7 +30,6 @@ var Librarian = React.createClass({
   },
 
   render: function() {
-    var tableHeader = ["科目番号", "科目名", "成績", "単位"];
     var allRecords = this.state.allRecords;
 
     var findById = function(ids) {
