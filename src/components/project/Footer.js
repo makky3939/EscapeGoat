@@ -1,5 +1,7 @@
 var React = require('react');
 
+var package = require('../../../package.json');
+
 var Footer = React.createClass({
   render: function() {
     return (
@@ -24,7 +26,7 @@ var Footer = React.createClass({
               </li>
             </ol>
             <span>&copy; makky.io All Rights Reserved.<br /></span>
-            <span>EscapeGoat v1.0.25</span>
+            <span>EscapeGoat v{package.version}</span>
           </p>
         </div>
       </footer>

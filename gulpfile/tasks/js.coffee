@@ -13,7 +13,7 @@ gulp.task 'js', ->
         console.log err
         this.emit 'end'
     .pipe gulpBrowserify
-      insertGlobals: false
+      insertGlobals: true
       transform: [reactify]
       plugin: 'licensify'
     .pipe gulpUglify()
