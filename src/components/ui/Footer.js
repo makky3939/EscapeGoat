@@ -7,7 +7,7 @@ var Footer = React.createClass({
     return (
       <footer className="Footer">
         <div className="text-xs-center">
-          <a onClick={window.scrollTo(0, 0)}>
+          <a onClick={function() {window.scrollTo(0, 0);}}>
             <i className="fa fa-angle-double-up fa-fw fa-lg" />
           </a>
           <p>

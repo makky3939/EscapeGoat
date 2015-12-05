@@ -1,8 +1,8 @@
 var React = require('react');
 
-// Component
-var Navbar = require('../project/Navbar.js');
-var Footer = require('../project/Footer.js');
+// Ui
+var Navbar = require('../ui/Navbar.js');
+var Footer = require('../ui/Footer.js');
 
 // Action
 var RecordAction = require('./../../actions/RecordAction.js');
