@@ -16,6 +16,7 @@ var Usage = require('./components/project/Usage.js');
 var Records = require('./components/project/Records.js');
 var Dashboard = require('./components/project/Dashboard.js');
 var About = require('./components/project/About.js');
+var Librarian = require('./components/project/Librarian.js');
 
 function onUpdateHandler() {
   window.scrollTo(0, 0);
@@ -35,6 +36,7 @@ React.render((
       <Route path="/records" component={Records} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/about" component={About} />
+      <Route path="/librarian" component={Librarian} />
     </Route>
     <Redirect from="/" to="/usage" />
   </Router>
