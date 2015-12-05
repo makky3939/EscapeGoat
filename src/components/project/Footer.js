@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react')
 
-const Footer = React.createClass({
-  render() {
+var Footer = React.createClass({
+  render: function() {
     return (
       <footer className="Footer">
         <div className="text-xs-center">
-          <a onClick={() => window.scrollTo(0, 0)}>
+          <a onClick={window.scrollTo(0, 0)}>
             <i className="fa fa-angle-double-up fa-fw fa-lg" />
           </a>
           <p>

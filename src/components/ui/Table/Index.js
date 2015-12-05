@@ -1,15 +1,15 @@
-import React from 'react'
+var React = require('react')
 
 // Component
-import TableRow from './Row.js'
+var TableRow = require('./Row.js')
 
-const Table = React.createClass({
+var Table = React.createClass({
   propTypes: {
     header: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     body: React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.string)).isRequired
   },
 
-  render() {
+  render: function() {
     return (
       <div className="table-responsive">
         <table className="table">

@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react')
 
 // Component
-import Navbar from '../project/Navbar.js'
-import Footer from '../project/Footer.js'
+var Navbar = require('../project/Navbar.js')
+var Footer = require('../project/Footer.js')
 
 // Action
-import RecordAction from './../../actions/RecordAction.js'
+var RecordAction = require('./../../actions/RecordAction.js')
 
 module.exports = React.createClass({
   componentDidMount: function() {
@@ -23,7 +23,7 @@ module.exports = React.createClass({
     }
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <Navbar />

@@ -1,16 +1,21 @@
-import React from 'react'
-import { Router, Route, Redirect } from 'react-router'
-import {createHistory, useBasename} from 'history'
-import createBrowserHistory from 'history/lib/createBrowserHistory'
+var React = require('react')
+var reactRouter = require('react-router')
+var Router = reactRouter.Router
+var Route = reactRouter.Route
+var Redirect = reactRouter.Redirect
+var history = require('history')
+var createHistory = history.createHistory
+var useBasename = history.useBasename
+var createBrowserHistory = require('history/lib/createBrowserHistory')
 
 // Page components
-import Layout from './components/page/Layout.js'
+var Layout = require('./components/page/Layout.js')
 
 // Project components
-import Usage from './components/project/Usage.js'
-import Records from './components/project/Records.js'
-import Dashboard from './components/project/Dashboard.js'
-import About from './components/project/About.js'
+var Usage = require('./components/project/Usage.js')
+var Records = require('./components/project/Records.js')
+var Dashboard = require('./components/project/Dashboard.js')
+var About = require('./components/project/About.js')
 
 function onUpdateHandler() {
   window.scrollTo(0, 0)
@@ -19,12 +24,12 @@ function onUpdateHandler() {
 
 onUpdateHandler()
 
-const baseName = useBasename(createHistory)({
-  basename: '/escapegoat'
+var baseName = useBasename(createHistory)({
+  basename: '/escapegoat/'
 })
 
 React.render((
-  <Router onUpdate={() => onUpdateHandler()} history={createBrowserHistory(), baseName}>
+  <Router history={baseName}>
     <Route path="" component={Layout}>
       <Route path="/usage" component={Usage} />
       <Route path="/records" component={Records} />

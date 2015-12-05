@@ -1,17 +1,17 @@
-import React from 'react'
+var React = require('react')
 
 // Component
-import TableCell from './Cell.js'
+var TableCell = require('./Cell.js')
 
-const TableRow = React.createClass({
+var TableRow = React.createClass({
   propTypes: {
     type: React.PropTypes.string.isRequired,
     list: React.PropTypes.array.isRequired
   },
 
-  render() {
-    const type = this.props.type
-    let rowStyle = ""
+  render: function() {
+    var type = this.props.type
+    var rowStyle = ""
     switch (this.props.list[2]) {
       case "D":
         rowStyle = "table-danger"

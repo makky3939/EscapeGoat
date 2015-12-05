@@ -1,26 +1,27 @@
-import { EventEmitter} from 'events'
-import assign from 'object-assign'
+var events = require('events')
+var EventEmitter = events.EventEmitter
+var assign = require('object-assign')
 
 // Dispatcher
-import AppDispatcher from './../dispatcher/AppDispatcher.js'
+var AppDispatcher = require('./../dispatcher/AppDispatcher.js')
 
 // Constants
-import RecordConstants from './../constants/RecordConstants.js'
+var RecordConstants = require('./../constants/RecordConstants.js')
 
 // Utils
-import RecordUtility from './../utils/RecordUtility.js'
+var RecordUtility = require('./../utils/RecordUtility.js')
 
-const CHANGE_EVENT = 'change'
-const REQUIRED_FLAG = 'required'
-const OPTIONAL_FLAG = 'optional'
-let _records = {}
+var CHANGE_EVENT = 'change'
+var REQUIRED_FLAG = 'required'
+var OPTIONAL_FLAG = 'optional'
+var _records = {}
 
 /**
  * Create a Record item.
  * @param {string} text The content of the Record
  */
 function create(record, internal) {
-  const id = Object.keys(_records).length
+  var id = Object.keys(_records).length
 
   if (record.type != '') {
     _records[id] = {
@@ -44,15 +45,15 @@ function create(record, internal) {
 }
 
 /**
- * Delete Record items.
+ * Devare Record items.
  */
 function destroyAll() {
   _records = []
 }
 
 function credit(records) {
-  let sum = 0.0
-  const exams = ["A+", "A", "B", "C", "P", ""]
+  var sum = 0.0
+  var exams = ["A+", "A", "B", "C", "P", ""]
   records.forEach(function(element, index) {
     if (exams.indexOf(element.score) >= 0 ) {
       sum = sum + Number(element.unit)
@@ -61,14 +62,14 @@ function credit(records) {
   return sum
 }
 
-const RecordStore = assign({}, EventEmitter.prototype, {
+var RecordStore = assign({}, EventEmitter.prototype, {
   count: function() {
     return Object.keys(_records).length
   },
 
   weightedAverage: function() {
-    const exams = ["A+", "A", "B", "C", "D"]
-    let score = {
+    var exams = ["A+", "A", "B", "C", "D"]
+    var score = {
       ap: 0.0,
       a: 0.0,
       b: 0.0,
@@ -77,8 +78,8 @@ const RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     for (var i = 0; i < Object.keys(_records).length; i++) {
-      let index = Object.keys(_records)[i]
-      let record = _records[index]
+      var index = Object.keys(_records)[i]
+      var record = _records[index]
       switch (exams.indexOf(record.score)) {
         case 0:
           score.ap += Number(record.unit)
@@ -110,17 +111,17 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   },
 
   basic: function() {
-    const requiredSubjectCodes = [
+    var requiredSubjectCodes = [
       '1120102', '1120202', '1120302', '1120402',
       '1320013', '1320023', '1320033', '1320043'
     ]
 
-    const record = new RecordUtility(_records, 'C')
-    let generalAll = 0
+    var record = new RecordUtility(_records, 'C')
+    var generalAll = 0
 
     // required
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
@@ -136,7 +137,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // optional
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (record.find(index).subjectCode.match(/^3[1,2,3,4,5,6,7]/)) {
         record.division(index, OPTIONAL_FLAG)
       }
@@ -146,10 +147,10 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   },
 
   specialBasic: function() {
-    const record = new RecordUtility(_records, 'B')
+    var record = new RecordUtility(_records, 'B')
 
-    let mySize = 0
-    const requiredSubjectCodes = [
+    var mySize = 0
+    var requiredSubjectCodes = [
       'GE10301',
       'GE10413', 'GE10423',
       'GE10612', 'GE10622', 'GE10712', 'GE10722',
@@ -163,7 +164,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // required
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
@@ -171,7 +172,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // optional
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (record.find(index).subjectCode.match(/GE2|GA/) && mySize < 32 ) {
         record.division(index, OPTIONAL_FLAG)
         mySize += record.credit([record.find(index)])
@@ -182,27 +183,27 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   },
 
   special: function() {
-    const record = new RecordUtility(_records, 'A')
+    var record = new RecordUtility(_records, 'A')
 
-    const requiredSubjectCodes = [
+    var requiredSubjectCodes = [
       'GE70103', 'GE60103', 'GE80103',
       'GE50812', 'GE50822', 'GE50832',
       'GE50712', 'GE50722', 'GE50732',
       'GE51018', 'GE51028', 'GE51038', 'GE51048'
     ]
 
-    const majorSubjectCodes = [
+    var majorSubjectCodes = [
       'GE70103', 'GE60103', 'GE80103'
     ]
 
-    let myMajorPattern = /GE8/
-    let otherMajorPattern = /GE[4,6,7]/
-    let myMajorSize = 0
-    let otherMajorSize = 0
+    var myMajorPattern = /GE8/
+    var otherMajorPattern = /GE[4,6,7]/
+    var myMajorSize = 0
+    var otherMajorSize = 0
 
     // major
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (majorSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         switch (majorSubjectCodes.indexOf(record.find(index).subjectCode)) {
           case 0:
@@ -219,7 +220,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // required
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (requiredSubjectCodes.indexOf(record.find(index).subjectCode) >= 0 ) {
         record.division(index, REQUIRED_FLAG)
       }
@@ -227,7 +228,7 @@ const RecordStore = assign({}, EventEmitter.prototype, {
 
     // optional
     for (var i = 0; i < record.ids.length; i++) {
-      let index = record.ids[i]
+      var index = record.ids[i]
       if (record.find(index).subjectCode.match(myMajorPattern) && myMajorSize < 20 ) {
         if (record.division(index, OPTIONAL_FLAG)) {
           myMajorSize += record.credit([record.find(index)])
@@ -262,9 +263,9 @@ const RecordStore = assign({}, EventEmitter.prototype, {
   },
 
   dispatcherIndex: AppDispatcher.register(function(payload) {
-    let actionType = payload.actionType
-    let record = payload.record
-    let internal = payload.internal
+    var actionType = payload.actionType
+    var record = payload.record
+    var internal = payload.internal
 
     switch(actionType) {
       case RecordConstants.RECORD_CREATE:

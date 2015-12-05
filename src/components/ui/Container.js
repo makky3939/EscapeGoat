@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react')
 
-const Container = React.createClass({
+var Container = React.createClass({
   propTypes: {
     style: React.PropTypes.string
   },
 
-  render() {
+  render: function() {
     return (
       <div className="container">
         <div className={this.props.style}>

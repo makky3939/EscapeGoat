@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router'
+var React = require('react')
+
+var reactRouter = require('react-router')
+var Link = reactRouter.Link
 
 // UI
-import ImputFile from './../ui/Imput/File.js'
-import Container from './../ui/Container.js'
+var ImputFile = require('./../ui/Imput/File.js')
+var Container = require('./../ui/Container.js')
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
+var RecordStore = require('../../stores/RecordStore.js')
 
 
 function getRecordState() {
@@ -28,7 +30,7 @@ module.exports = React.createClass({
     RecordStore.removeChangeListener(this._onChange);
   },
 
-  render() {
+  render: function() {
     return (
       <div>
         <div className="jumbotron text-xs-center">
@@ -62,7 +64,7 @@ module.exports = React.createClass({
               <h3>TwinsからCSVファイルをダウンロード</h3>
               <ol>
                 <li>
-                  <a href="https://twins.tsukuba.ac.jp/campusweb/" target="_blank">Twins</a>にアクセスし、<code>履修 -> 科目区分参照・変更</code> を選択します。
+                  <a href="https://twins.tsukuba.ac.jp/campusweb/" target="_blank">Twins</a>にアクセスし、<code>履修から科目区分参照・変更</code> を選択します。
                 </li>
                 <li>
                   クリック後に表示されたページの下部にある<code>ダウンロードボタン</code>を選択肢し、ダウンロードしてください。

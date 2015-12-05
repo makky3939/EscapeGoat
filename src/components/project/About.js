@@ -1,10 +1,10 @@
-import React from 'react'
+var React = require('react')
 
 // UI
-import Container from './../ui/Container.js'
+var Container = require('./../ui/Container.js')
 
-const About = React.createClass({
-  render() {
+var About = React.createClass({
+  render: function() {
     return (
       <Container style="col-sm-12">
         <h1>アプリについて</h1>

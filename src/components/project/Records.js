@@ -1,11 +1,11 @@
-import React from 'react'
+var React = require('react')
 
 // UI
-import Table from '../ui/Table/Index.js'
-import Container from './../ui/Container.js'
+var Table = require('../ui/Table/Index.js')
+var Container = require('./../ui/Container.js')
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
+var RecordStore = require('../../stores/RecordStore.js')
 
 
 /**
@@ -17,7 +17,7 @@ function getRecordState() {
   }
 }
 
-let TableView = React.createClass({
+var TableView = React.createClass({
   getInitialState: function() {
     return getRecordState()
   },
@@ -30,11 +30,11 @@ let TableView = React.createClass({
     RecordStore.removeChangeListener(this._onChange);
   },
 
-  render() {
-    const tableHeader = ["区分", "年度", "期間", "科目番号", "科目名", "教員", "成績", "単位"]
-    const allRecords = this.state.allRecords
-    const records = Object.keys(allRecords).map(function(index) {
-      let record = allRecords[index]
+  render: function() {
+    var tableHeader = ["区分", "年度", "期間", "科目番号", "科目名", "教員", "成績", "単位"]
+    var allRecords = this.state.allRecords
+    var records = Object.keys(allRecords).map(function(index) {
+      var record = allRecords[index]
       return [
         record.type,
         record.year,

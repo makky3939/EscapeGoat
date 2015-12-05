@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router'
+var React = require('react')
+var reactRouter = require('react-router')
+var Link = reactRouter.Link
 
 // Store
-import RecordStore from '../../stores/RecordStore.js'
-
+var RecordStore = require('../../stores/RecordStore.js')
 
 function getRecordState() {
   return {
@@ -11,7 +11,7 @@ function getRecordState() {
   }
 }
 
-const Navbar = React.createClass({
+var Navbar = React.createClass({
   getInitialState: function() {
     return getRecordState()
   },
@@ -24,7 +24,7 @@ const Navbar = React.createClass({
     RecordStore.removeChangeListener(this._onChange)
   },
 
-  render() {
+  render: function() {
     return (
       <nav className="navbar navbar-dark bg-inverse">
         <div className="container">
