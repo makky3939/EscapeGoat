@@ -39,7 +39,10 @@ var Navbar = React.createClass({
               }
             </li>
             <li className="nav-item">
+              { !this.state.count ?
+              <Link className="nav-link disabled" to="">司書資格</Link>:
               <Link className="nav-link" to="/librarian" activeClassName="active">司書資格</Link>
+              }
             </li>
             <li className="nav-item">
               { !this.state.count ?
