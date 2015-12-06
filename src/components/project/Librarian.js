@@ -265,7 +265,7 @@ var Librarian = React.createClass({
               <tr>
                 <td>ディジタルドキュメント</td>
                 <td className='text-xs-center'>2</td>
-                <td className='text-xs-center'><Score status={findById(['GE70401'])} /></td>
+                <td className='text-xs-center'><Score status={findById(['GE70301'])} /></td>
               </tr>
 
               <tr>
