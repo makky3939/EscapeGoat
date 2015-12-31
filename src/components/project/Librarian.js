@@ -271,7 +271,7 @@ var Librarian = React.createClass({
               <tr>
                 <td>図書・図書館史</td>
                 <td className='text-xs-center'>1</td>
-                <td>図書館論</td>
+                <td>図書館文化史論</td>
                 <td className='text-xs-center'>2</td>
                 <td className='text-xs-center'><Score status={findById(['GE81901'])} /></td>
                 <td></td>
