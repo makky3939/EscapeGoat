@@ -30,7 +30,7 @@ var baseName = useBasename(createHistory)({
 });
 
 React.render((
-  <Router onUpdate={onUpdateHandler} history={baseName}>
+  <Router onUpdate={function(){onUpdateHandler();}} history={baseName}>
     <Route path="" component={Layout}>
       <Route path="/usage" component={Usage} />
       <Route path="/records" component={Records} />
