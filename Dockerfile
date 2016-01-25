@@ -26,7 +26,6 @@ RUN echo ". ~/.nvm/nvm.sh" >> ~/.bash_profile
 
 RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1 && nvm alias default 4.2.1 && ln -s ~/.nvm/4.2.1/bin/node /usr/bin/node && ln -s ~/.nvm/4.2.1/bin/npm /usr/bin/npm'
 
-# RUN yum install -y npm
 # RUN npm install -g npm@2.14.7
 
 # ruby
