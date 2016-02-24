@@ -21,7 +21,7 @@ var Librarian = require('./components/project/Librarian.js');
 
 function onUpdateHandler() {
   window.scrollTo(0, 0);
-  ga('send', 'pageview');
+  ga('send', 'pageview', location.pathname);
 }
 
 onUpdateHandler();
