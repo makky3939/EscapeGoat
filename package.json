@@ -1,6 +1,6 @@
 {
   "name": "escapegoat",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "escapegoat",
   "main": "index.js",
   "scripts": {
@@ -21,12 +21,15 @@
   "homepage": "https://github.com/makky3939/EscapeGoat#readme",
   "dependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap.git#v4-dev",
+    "chart.js": "^1.0.2",
     "flux": "^2.1.1",
     "font-awesome": "^4.4.0",
     "history": "^1.12.5",
     "keymirror": "^0.1.1",
     "object-assign": "^4.0.1",
-    "react": "^0.13.3",
+    "react": "^0.14.7",
+    "react-chartjs": "^0.7.3",
+    "react-dom": "^0.14.7",
     "react-router": "^1.0.0-rc3"
   },
   "devDependencies": {

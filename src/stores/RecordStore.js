@@ -102,6 +102,56 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     ).toFixed(2);
   },
 
+  scores: function() {
+    var exams = ["A+", "A", "B", "C", "D", "P", "F"];
+    var score = {
+      ap: 0.0,
+      a: 0.0,
+      b: 0.0,
+      c: 0.0,
+      d: 0.0,
+      p: 0.0,
+      f: 0.0
+    };
+
+    for (var i = 0; i < Object.keys(_records).length; i++) {
+      var index = Object.keys(_records)[i];
+      var record = _records[index];
+      switch (exams.indexOf(record.score)) {
+        case 0:
+          score.ap += Number(record.unit);
+          break;
+        case 1:
+          score.a += Number(record.unit);
+          break;
+        case 2:
+          score.b += Number(record.unit);
+          break;
+        case 3:
+          score.c += Number(record.unit);
+          break;
+        case 4:
+          score.d += Number(record.unit);
+          break;
+        case 5:
+          score.p += Number(record.unit);
+          break;
+        case 6:
+          score.f += Number(record.unit);
+          break;
+      }
+    }
+
+    return [
+      score.ap,
+      score.a,
+      score.b,
+      score.c,
+      score.d,
+      score.p,
+      score.f];
+  },
+
   getAll: function() {
     return _records;
   },
