@@ -37,7 +37,7 @@ module.exports = React.createClass({
           <p>The winner solution, for klis.</p>
         </div>
 
-        <Container style="col-md-8 col-md-offset-2 col-sm-12">
+        <Container style="col-sm-12">
           <section>
             <h2>特徴</h2>
             <section>
