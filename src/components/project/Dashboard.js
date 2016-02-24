@@ -1,5 +1,7 @@
 var React = require('react');
 
+var BarChart = require("react-chartjs").Bar;
+
 // UI
 var Table = require('../ui/Table/Index.js');
 var Container = require('./../ui/Container.js');
@@ -13,7 +15,8 @@ function getRecordState() {
     basic: RecordStore.basic(),
     specialBasic: RecordStore.specialBasic(),
     special: RecordStore.special(),
-    weightedAverage: RecordStore.weightedAverage()
+    weightedAverage: RecordStore.weightedAverage(),
+    scores: RecordStore.scores()
   };
 }
 
@@ -55,6 +58,22 @@ var Dashboard = React.createClass({
     var required = specialBasic.required.credit + special.required.credit + basic.required.credit + basic.optional.credit;
     var optional = specialBasic.optional.credit + special.optional.credit;
     var free = specialBasic.free.credit + special.free.credit + basic.free.credit;
+
+    var data = {
+        labels: ["A+", "A", "B", "C", "D", "P", "F"],
+        datasets: [
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: this.state.scores
+            }
+        ]
+    };
     return (
       <Container style="col-sm-12">
         <h1>卒業判定</h1>
@@ -99,6 +118,7 @@ var Dashboard = React.createClass({
                   </div>
                 </div>
               </div>
+              <BarChart data={data} width="512" height="400"/>
             </div>
           </section>
 
