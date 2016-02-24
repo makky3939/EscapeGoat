@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDom = require('react-dom');
 var reactRouter = require('react-router');
 var Router = reactRouter.Router;
 var Route = reactRouter.Route;
@@ -29,7 +30,7 @@ var baseName = useBasename(createHistory)({
   basename: '/escapegoat/'
 });
 
-React.render((
+ReactDom.render((
   <Router onUpdate={function(){onUpdateHandler();}} history={baseName}>
     <Route path="" component={Layout}>
       <Route path="/usage" component={Usage} />
