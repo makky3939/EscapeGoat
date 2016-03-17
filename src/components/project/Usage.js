@@ -85,6 +85,12 @@ module.exports = React.createClass({
                   </div>
                 </div>
               </div>
+
+              <p>
+                <div className="alert alert-success" role="alert">
+                  <strong>Tips</strong> サンプルとして開発者の成績データを利用できます。 (<a href="https://www.dropbox.com/s/xzf50wa4a2br7be/gakusei_xxxxxxxxx.csv?dl=0" target="_blank">DL</a>)
+                </div>
+              </p>
             </section>
 
             <section>
