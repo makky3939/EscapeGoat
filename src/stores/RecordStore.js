@@ -96,7 +96,9 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     }
 
     return (
-      (score.ap * 4 + score.a * 3 + score.b * 2 + score.c * 1)
+      // (score.ap * 4 + score.a * 3 + score.b * 2 + score.c * 1)
+      (score.ap * 4.3 + score.a * 4 + score.b * 3 + score.c * 2)
+      // GP has been revised (https://www.tsukuba.ac.jp/education/gpa.html)
       /
       (score.ap + score.a + score.b + score.c + score.d)
     ).toFixed(2);
