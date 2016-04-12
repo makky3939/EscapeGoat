@@ -245,6 +245,8 @@ var RecordStore = assign({}, EventEmitter.prototype, {
       'GE70103', 'GE60103', 'GE80103'
     ];
 
+    var oldmanseminarCodes = ['GE50301', 'GE50401'];
+
     var myMajorPattern = /GE8/;
     var otherMajorPattern = /GE[4,6,7]/;
     var myMajorSize = 0;
@@ -278,11 +280,33 @@ var RecordStore = assign({}, EventEmitter.prototype, {
     // optional
     for (var i = 0; i < record.ids().length; i++) {
       var index = record.ids()[i];
+      if (oldmanseminarCodes.indexOf(record.find(index).subjectCode) >= 0) {
+        if (record.division(index, OPTIONAL_FLAG)) {}
+      }
+
+      if (record.find(index).unit == "2.0") {
+        if (record.find(index).subjectCode.match(myMajorPattern) && myMajorSize < 20 ) {
+          if (record.division(index, OPTIONAL_FLAG)) {
+            myMajorSize += record.credit([record.find(index)]);
+          }
+        }
+
+        if (record.find(index).subjectCode.match(otherMajorPattern) && otherMajorSize < 8 ) {
+          if (record.division(index, OPTIONAL_FLAG)) {
+            otherMajorSize += record.credit([record.find(index)]);
+          }
+        }
+      }
+    }
+
+    for (var i = 0; i < record.ids().length; i++) {
+      var index = record.ids()[i];
       if (record.find(index).subjectCode.match(myMajorPattern) && myMajorSize < 20 ) {
         if (record.division(index, OPTIONAL_FLAG)) {
           myMajorSize += record.credit([record.find(index)]);
         }
       }
+
       if (record.find(index).subjectCode.match(otherMajorPattern) && otherMajorSize < 8 ) {
         if (record.division(index, OPTIONAL_FLAG)) {
           otherMajorSize += record.credit([record.find(index)]);
