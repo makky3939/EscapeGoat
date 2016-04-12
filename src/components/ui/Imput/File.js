@@ -22,10 +22,10 @@ module.exports = React.createClass({
     reader.onload = function(upload) {
       RecordAction.destroyAll();
 
-      var csv = upload.target.result.replace(/"/g, "").replace(/, /g, "").split("\n")[1].split("\r");
+      var csv = upload.target.result.replace(/\",/g, "+++@@@@+++").replace(/"/g, "").replace(/, /g, "").replace(/,/g, "").split("\n")[1].split("\r");
 
       csv.map(function(item) {
-        var i = item.split(",");
+        var i = item.split("+++@@@@+++");
         if (i[1] != "") {
           RecordAction.create({
             type: i[0].split(":")[0].replace(/[0-9]/g, ""),
