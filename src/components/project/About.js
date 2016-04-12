@@ -76,6 +76,11 @@ var About = React.createClass({
         <section>
           <h2>アクセスログの収集について</h2>
           <p>当サイトでは、Googleが提供する「Google Analytics」を使用しています。Google Analyticsは、サイトの利用状況を解析するため、「Cookie」を使用しています。収集される情報はGoogleのポリシーに基づいて管理されます。 Google Analyticsについて、およびGoogle社のプライバシーポリシーについては以下をご覧ください。</p>
+          <p>
+            <a href="https://support.google.com/analytics/answer/6004245" target="_blank">
+              {'データの保護 - アナリティクス ヘルプ'}
+            </a>
+          </p>
           <div className="alert alert-info" role="alert">
             <strong>Tips</strong> 成績に関する情報は含まれません。
           </div>
@@ -85,6 +90,7 @@ var About = React.createClass({
         <section>
           <h2>参考文献</h2>
           <p>筑波大学 情報学群 知識情報・図書館学類. 平成27年度 知識情報・図書館学類 開設授業科目シラバス. 筑波大学, 2015, 236p.</p>
+          <p>筑波大学 情報学群 知識情報・図書館学類. 平成27年度 知識情報・図書館学類 開設授業科目シラバス. 筑波大学, 2016, 226p.</p>
         </section>
       </Container>
     );
