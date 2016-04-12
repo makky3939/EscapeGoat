@@ -10,7 +10,7 @@ var Footer = React.createClass({
           <a onClick={function() {window.scrollTo(0, 0);}}>
             <i className="fa fa-angle-double-up fa-fw fa-lg" />
           </a>
-          <p>
+          <div>
             <ol className="list-inline">
               <li>
                 <a href="https://github.com/makky3939/EscapeGoat" target="_blank">Github Project</a>
@@ -27,7 +27,7 @@ var Footer = React.createClass({
             </ol>
             <span>&copy; makky.io All Rights Reserved.<br /></span>
             <span>EscapeGoat v{package.version}</span>
-          </p>
+          </div>
         </div>
       </footer>
     );

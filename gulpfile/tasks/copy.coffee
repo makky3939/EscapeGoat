@@ -3,8 +3,8 @@ runSequence = require 'run-sequence'
 
 gulp.task 'copy:libcss', ->
   terget = [
-    '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-    '../node_modules/bootstrap/dist/css/bootstrap.min.css.map'
+    '../node_modules/bootstrap/dist/css/bootstrap.css'
+    '../node_modules/bootstrap/dist/css/bootstrap.css.map'
     '../node_modules/font-awesome/css/font-awesome.min.css'
   ]
   gulp.src terget

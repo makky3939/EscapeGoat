@@ -86,22 +86,24 @@ module.exports = React.createClass({
                 </div>
               </div>
 
-              <p>
-                <div className="alert alert-success" role="alert">
+              <div>
+                <br />
+                <p className="alert alert-success" role="alert">
                   <strong>Tips</strong> サンプルとして開発者の成績データを利用できます。 (<a href="https://www.dropbox.com/s/xzf50wa4a2br7be/gakusei_xxxxxxxxx.csv?dl=0" target="_blank">DL</a>)
-                </div>
-              </p>
+                </p>
+              </div>
             </section>
 
             <section>
               <h3>EscapeGoatでCSVファイルを読み込む</h3>
               <p>上記の方法でダウンロードしたCSVファイルを以下のフォームで指定してください。</p>
               <ImputFile />
-              <p>
-                <div className="alert alert-info" role="alert">
+              <div>
+                <br />
+                <p className="alert alert-info" role="alert">
                   <strong>Tips</strong> 指定したファイルはこのコンピュータ内で集計処理を行うために使用します
-                </div>
-              </p>
+                </p>
+              </div>
             </section>
 
             <section>
