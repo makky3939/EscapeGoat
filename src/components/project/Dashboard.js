@@ -91,18 +91,21 @@ var Dashboard = React.createClass({
                   <div className="card-block">
                     <h4 className="card-title">必修科目</h4>
                     <p>{required}/51.5</p>
+                    <progress className="progress" value={required} max="51.5">{required}/51.5</progress>
                   </div>
                 </div>
                 <div className="card col-md-4 col-sm-6 col-xs-12">
                   <div className="card-block">
                     <h4 className="card-title">選択科目</h4>
                     <p>{optional}/62</p>
+                    <progress className="progress" value={optional} max="62">{optional}/62</progress>
                   </div>
                 </div>
                 <div className="card col-md-4 col-sm-6 col-xs-12">
                   <div className="card-block">
                     <h4 className="card-title">自由科目</h4>
                     <p>{free}/12</p>
+                    <progress className="progress" value={free} max="12">{free}/12</progress>
                   </div>
                 </div>
                 <div className="card col-md-4 col-sm-6 col-xs-12">
@@ -118,7 +121,9 @@ var Dashboard = React.createClass({
                   </div>
                 </div>
               </div>
-              <BarChart data={data} width="512" height="400"/>
+              <div className='text-xs-center'>
+                <BarChart data={data} width="512" height="400"/>
+              </div>
             </div>
           </section>
 
