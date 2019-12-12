@@ -1,8 +1,6 @@
 
 
 FROM centos:centos7
-MAINTAINER makky <makky.4d6b.3f5@gmail.com>
-
 
 # add npm package
 RUN rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
@@ -27,8 +25,8 @@ RUN echo ". ~/.nvm/nvm.sh" >> ~/.bash_profile
 RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1 && nvm alias default 4.2.1 && ln -s ~/.nvm/4.2.1/bin/node /usr/bin/node && ln -s ~/.nvm/4.2.1/bin/npm /usr/bin/npm'
 
 # ruby
-RUN yum install -y ruby
-RUN gem install sass
+RUN yum install -y ruby ruby-devel
+RUN gem install sass -v "3.4.19"
 
 # clone repository
 RUN git clone https://github.com/makky3939/EscapeGoat.git
