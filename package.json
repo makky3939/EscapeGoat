@@ -35,7 +35,7 @@
   "devDependencies": {
     "coffee-script": "1.10.0",
     "eslint-plugin-react": "3.11.2",
-    "gulp": "3.9.0",
+    "gulp": "3.7.0",
     "gulp-browserify": "0.5.1",
     "gulp-connect": "2.2.0",
     "gulp-eslint": "1.1.1",
@@ -48,6 +48,7 @@
     "reactify": "1.1.1",
     "require-dir": "0.3.0",
     "rimraf": "2.4.3",
-    "run-sequence": "1.1.4"
+    "run-sequence": "1.0.2",
+    "chalk": "1.0.0"
   }
 }

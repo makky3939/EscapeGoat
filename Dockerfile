@@ -19,21 +19,21 @@ RUN rm /usr/share/nginx/html/*
 RUN sed -i "s/        index  index.html index.htm;/        index  index.html index.htm; try_files \$uri \$uri\/ \/index.html =404;/g" /etc/nginx/conf.d/default.conf
 
 # node
-RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-RUN echo ". ~/.nvm/nvm.sh" >> ~/.bash_profile
+# RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+# RUN echo ". ~/.nvm/nvm.sh" >> ~/.bash_profile
 
-RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1 && nvm alias default 4.2.1 && ln -s ~/.nvm/4.2.1/bin/node /usr/bin/node && ln -s ~/.nvm/4.2.1/bin/npm /usr/bin/npm'
+# RUN /bin/bash -c '. ~/.nvm/nvm.sh && nvm install 4.2.1 && nvm use 4.2.1 && nvm alias default 4.2.1 && ln -s ~/.nvm/4.2.1/bin/node /usr/bin/node && ln -s ~/.nvm/4.2.1/bin/npm /usr/bin/npm'
 
 # ruby
-RUN yum install -y ruby ruby-devel
-RUN gem install sass -v "3.4.19"
+# RUN yum install -y ruby ruby-devel
+# RUN gem install sass -v "3.4.19"
 
 # clone repository
 RUN git clone https://github.com/makky3939/EscapeGoat.git
 
 # build
-RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm install'
-RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm run build'
+# RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm install'
+# RUN /bin/bash -c '. ~/.nvm/nvm.sh && cd EscapeGoat && npm run build'
 RUN cp -r EscapeGoat/escapegoat/* /usr/share/nginx/html/
 
 # port open
